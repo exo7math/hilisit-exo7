@@ -1,0 +1,687 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Exercices -- Logique, ensembles et raisonnements}
+
+\bigskip
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Logique}
+
+\exercice{}
+\enonce
+Dire si les assertions suivantes sont vraies ou fausses.
+ \begin{enumerate}
+      \item "$6\times 7 = 42$"
+      \item "$8 \times 8 = 49$"
+      \item "Tout entier impair est multiple de $2$."
+      \item "Tout nombre réel non nul admet un inverse."
+      \item "Il existe une solution réelle de l'équation $x^2+x+1=0$."
+      \item "Il existe une solution réelle de l'équation $x^2-3x+1=0$." 
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+ \begin{enumerate}
+     
+    \item Vrai : "$6\times 7 = 42$"
+    
+    \item Faux : "$8 \times 8 = 49$". En revanche, l'assertion "$8 \times 8 = 64$" est vraie.
+    
+    \item Faux : "Tout entier impair est multiple de $2$." Ce qui est vrai c'est "Tout entier \textbf{pair} est multiple de $2$."
+    
+    \item Vrai : "Tout réel non nul admet un inverse." En effet, si $x \neq 0$, son inverse existe et c'est $\frac1x$.
+    
+    \item Faux : "Il existe une solution réelle de $x^2+x+1=0$." Le discriminant $\Delta = -3$ est strictement négatif. Il n'y a pas de solution réelle.
+    
+    \item Vrai : "Il existe une solution réelle de $x^2-3x+1=0$." Le discriminant $\Delta = 5$ est strictement positif. Il y a deux solutions réelles (donc il y en a au moins une !).
+    
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Dire si les assertions suivantes sont vraies ou fausses.
+Dans ces phrases $x$ désigne un nombre réel quelconque fixé  ($x \in \Rr$) et $n$ un entier naturel quelconque ($n \in \Nn$).
+
+\begin{enumerate}
+    \item "$(x > 0) \text{ ou } (x \le 0)$"    
+    \item "$(x^2 \ge 0) \text{ ou } (x^2 \le 0)$"
+    \item "($n$ est divisible par $2$) ou ($n$ est divisible par $3$)"
+    \item "non($x^4 < 0$)"
+    \item "$(x > 3) \text{ ou } \text{non}(x \ge 4)$"  
+    \item "($n$ est impair) et ($n$ est divisible par $2$)"
+    \item "($n$ est pair) ou (non($n$ est divisible par $2$))"
+    \item "$(x>0)  \text{ ou } (x<0)  \text{ ou } (x=0)$"
+    \item "$(x>0)  \text{ et } (\text{non}(x>0))$".
+\end{enumerate}
+ 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    
+    \item Vrai : "$(x > 0) \text{ ou } (x \le 0)$". En français : un réel est soit strictement positif ou bien négatif ou nul.
+    
+    \item  Vrai : "$(x^2 \ge 0) \text{ ou } (x^2 \le 0)$". Cette phrase est vraie car on a toujours $x^2 \ge 0$. Comme un côté du "ou" est vrai (et même si l'autre est faux), la phrase est vraie.
+    
+    \item Faux : "($n$ est divisible par $2$) ou ($n$ est divisible par $3$)". 
+    La phrase n'est pas vraie pour tous les entiers $n$, par exemple $n=5$, n'est ni divisible par $2$, ni divisible par $3$.
+        
+    \item Vrai : "non($x^4 < 0$)". Pour un réel quelconque $x^4 = (x^2)^2 \ge 0$, donc "$x^4 < 0$" est faux, mais alors sa négation "non($x^4 < 0$)" est vraie. Remarquez que la proposition "non($x^4 < 0$)" peut en fait s'écrire "($x^4 \geq 0$)" qui est bien vraie.
+    
+    \item Vrai : "$(x > 3) \text{ ou } \text{non}(x \ge 4)$". On peut récrire la phrase sous la forme "$(x > 3) \text{ ou } (x < 4)$" qui est vraie (quel que soit $x$).
+      
+    \item Faux : "($n$ est impair) et ($n$ est divisible par $2$)". Un entier ne peut être pair et impair en même temps.   
+    
+    \item Vrai : "($n$ est pair) ou (non($n$ est divisible par $2$))"
+    On peut récrire la phrase sous la forme "($n$ est pair) ou ($n$ est impair)" qui est vraie, car un entier est soit pair, soit impair.
+    
+    \item Vrai : "$(x>0)  \text{ ou } (x<0)  \text{ ou } (x=0)$". Un entier est soit strictement positif, soit strictement négatif, soit nul.
+    
+    \item Faux. "$(x>0)  \text{ et } (\text{non}(x>0))$". De façon générale $\mathcal{P} \text{ et } \text{non-}\mathcal{P}$ est toujours fausse : on ne peut avoir une proposition vraie et sa négation aussi !
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Dire si les assertions suivantes sont vraies ou fausses.
+\begin{enumerate}
+    \item $\forall n \in \Nn  \quad n \text{ est un nombre premier }$
+    \item $\exists n \in \Nn  \quad n \text{ est un nombre premier }$
+    \item $\forall x \in \Rr  \quad x^2+1 \ge 1$      
+    \item $\exists x \in \Rr  \quad x^2+1 \ge 1$  
+    \item $\forall x \in \Rr^*_+  \quad x > \frac 1x$         
+    \item $\exists x \in \Rr^*_+  \quad x > \frac 1x$
+    \item $\exists x \in \Rr  \quad x^2+x-1 = 0$         
+    \item $\exists x \in \Zz  \quad x^2+x-1 = 0$                 
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Faux : $\forall n \in \Nn  \quad n \text{ est un nombre premier }$. La phrase dit "Tout entier est un nombre premier" ce qui est faux, car par exemple $n=4$ n'est pas un nombre premier.
+    
+    \item  Vrai : $\exists n \in \Nn  \quad n \text{ est un nombre premier }$. La phrase dit "Il existe un entier qui est un nombre premier" ce qui est vrai, en prenant par exemple $n=5$.
+    
+    \item  Vrai :  $\forall x \in \Rr  \quad x^2+1 \ge 1$. Preuve : pour n'importe quel $x\in\Rr$, $x^2 \ge 0$, donc en ajoutant $1$ de part et d'autre : $x^2+1 \ge 1$.
+        
+    \item Vrai :  $\exists x \in \Rr  \quad x^2+1 \ge 1$. C'est vrai aussi, mais pour le prouver il suffit de dire que, par exemple, $x= 10$ convient, car pour $x=10$ on a bien $x^2+1 = 101 \ge 1$.
+      
+    \item Faux : $\forall x \in \Rr^*_+  \quad x > \frac 1x$. Un contre-exemple est $x=\frac12$, pour lequel $\frac1x = 2$.
+    
+    \item Vrai : $\exists x \in \Rr^*_+  \quad x > \frac 1x$. Il suffit de dire que, par exemple, $x= 3$ convient.
+    
+    \item Vrai : $\exists x \in \Rr  \quad x^2+x-1 = 0$. Le discriminant $\Delta = 5$ est strictement positif. Il y a deux solutions réelles (donc il y en au moins une).
+             
+    \item Faux : $\exists x \in \Zz  \quad x^2+x-1 = 0$. Les seules solutions sont $\frac{1-\sqrt5}{2}$ et $\frac{1+\sqrt5}{2}$ qui sont des réels, mais pas des entiers.
+    
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Remplacer les pointillés des propositions suivantes par le symbole le plus adapté parmi $\implies$, $\impliedby$ ou $\iff$.
+
+Dans ces phrases $x$ et $y$ désignent des nombres réels et $n$ un entier naturel.
+
+\begin{enumerate}
+    \item $x > 0  \qquad \ldots\ldots \qquad x^2 > 0$
+    \item $ -x < 0 \qquad \ldots\ldots \qquad 3x > 1$    
+    \item $x^2 = 4  \qquad \ldots\ldots \qquad (x = 2)  \text{ ou } (x = -2)$      
+    \item $x \neq y  \qquad \ldots\ldots \qquad x^2 \neq y^2$
+    \item $xy = 0  \qquad \ldots\ldots \qquad x = 0 \text{ ou } y = 0$    
+    \item $xy = 0  \qquad \ldots\ldots \qquad x = 0 \text{ et } y = 0$
+    \item $xy \neq 0  \qquad \ldots\ldots \qquad x \neq 0 \text{ ou } y \neq 0$  
+    \item $n \ge 3$ et $n$ impair  \qquad \ldots\ldots \qquad $n \ge 3$ et $n$ un nombre premier 
+    \item $n \ge 3$ et $n$ pair  \qquad \ldots\ldots \qquad $n \ge 3$ et $n$ n'est pas un nombre premier      
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item $x > 0 \implies  x^2 > 0$ (la réciproque $\impliedby$ est fausse, prenez par exemple $x=-2$).
+    
+    \item $ -x < 0 \impliedby 3x > 1  $  (l'implication directe $\implies$ est fausse, prenez par exemple $x=\frac1{10}$).  
+    
+    \item $x^2 = 4  \iff (x = 2)  \text{ ou } (x = -2)$    
+      
+    \item $x \neq y \impliedby  x^2 \neq y^2$ (l'implication directe $\implies$ est fausse, prenez par exemple $x=2$, $y=-2$).
+    
+    \item $xy = 0 \iff x = 0 \text{ ou } y = 0$
+        
+    \item $xy = 0 \impliedby  x = 0 \text{ et } y = 0$
+    
+    \item $xy \neq 0 \implies x \neq 0 \text{ ou } y \neq 0$  \quad : il s'agit de la contraposée de l'implication précédente !
+    
+    \item $n \ge 3$ et $n$ impair  $\impliedby$   $n \ge 3$ et $n$ est un nombre premier (l'implication directe est fausse pour $n=9$ par exemple).
+    
+    \item $n \ge 3$ et $n$ pair $\implies$  $n \ge 3$ et $n$ n'est pas un nombre premier \quad : c'est la contraposée de l'implication précédente ; $n=9$ convient donc encore comme contre-exemple pour vérifier que l'implication réciproque n'est pas vraie.     
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Écrire la contraposée de chacune des propositions suivantes. 
+Dans ces phrases, $x$ désigne un réel et $n$ un entier naturel quelconque.
+(On ne demande pas de dire si les phrases sont vraies ou fausses.)
+\begin{enumerate}
+    \item Il pleut $\implies$ Je prends mon parapluie
+    \item $x^2 \neq 0 \implies x \neq 0$ 
+    \item $7x-1 > 20 \implies x > 3$ 
+    \item $n^2$ est pair $\implies$ $n$ est pair 
+    \item Si un triangle est rectangle alors le carré de l'hypoténuse est égal à la somme des carrés des côtés opposés.
+\end{enumerate} 
+\finenonce
+
+\indication
+La contraposition de "$\mathcal{P} \implies \mathcal{Q}$" est
+"$\text{non}(\mathcal{Q}) \implies \text{non}(\mathcal{P})$".
+\finindication
+
+\correction
+La contraposition de "$\mathcal{P} \implies \mathcal{Q}$" est
+"$\text{non}(\mathcal{Q}) \implies \text{non}(\mathcal{P})$".
+Les contrapositions sont :
+\begin{enumerate}
+    \item Je ne prends pas mon parapluie $\implies$ Il ne pleut pas
+    \item $x = 0\implies x^2 = 0$ 
+    \item $x \le 3 \implies 7x-1 \le 20$ 
+    \item $n$ est impair $\implies$ $n^2$ est impair
+    \item Si le carré de l'hypoténuse n'est pas égal à la somme des carrés des côtés opposés alors le triangle n'est pas rectangle.
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ensembles}
+
+\exercice{}
+\enonce
+Remplacer les pointillés par le symbole le plus adapté parmi $\in$, $\notin$, $\subset$, $\supset$.
+
+\begin{enumerate}
+    \item $ [3,5] \qquad \ldots\ldots \qquad \{ x \in \Rr \mid 2 \le x \le 7 \} $
+    \item $ 2 \qquad \ldots\ldots \qquad \{ x \in \Rr \mid x^2 \ge 5 \} $
+    \item $\pi = 3.14\dots  \qquad \ldots\ldots \qquad \Rr \setminus \Qq $
+    \item $[1,9] \qquad \ldots\ldots \qquad [1,4] \cup [5,9] $
+    \item $\{ 0 \} \qquad \ldots\ldots \qquad \Rr_+$
+    \item $0 \qquad \ldots\ldots \qquad \Zz \setminus \Nn $   
+    \item $[-7,5] \cap [-2,8] \qquad \ldots\ldots \qquad [-1,1] $  
+\end{enumerate}    
+\finenonce
+
+\indication
+Rappels :
+$\in$ "appartient à" ; $\notin$ "n'appartient pas à" sont utilisés pour des éléments, $\subset$ "est contenu dans", $\supset$ "contient" sont utilisés pour des ensembles.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item $ [3,5] \subset \{ x \in \Rr \mid 2 \le x \le 7 \} $ car on rappelle que 
+    $ [3,5] = \{ x \in \Rr \mid 3 \le x \le 5 \} $.
+
+    \item $ 2 \notin \{ x \in \Rr \mid x^2 \ge 5 \} $
+    
+    \item $\pi  \in  \Rr \setminus \Qq $
+    
+    \item $[1,9] \supset [1,4] \cup [5,9] $
+    
+    \item $\{ 0 \} \subset \Rr_+$ (et pas "$\in$" car $\{ 0 \}$ est un ensemble, ce n'est pas l'élément $0$). 
+
+    \item $0 \notin \Zz \setminus \Nn $ ($0 \in \Nn$ donc on le retire ici de $\Zz$).
+    
+    \item $\big([-7,5] \cap [-2,8]\big) \supset [-1,1]$  
+\end{enumerate}  
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Déterminer le domaine de définition de la fonction $x \mapsto f(x)$ dans chacun des cas suivants :
+\begin{enumerate}
+    \item $f(x) = \sqrt{-x+3}$
+    \item $f(x) = \frac{1}{x} + \frac{1}{x^2-1}$
+    \item $f(x) = \exp(x^2+1)$
+    \item $f(x) = \ln( 5x + 8 )$
+    \item $f(x) = \ln\big( (x-1)(x+2) \big)$
+    \item $f(x) = \sqrt{ x^2+3x-2 }$
+\end{enumerate} 
+\finenonce
+
+\indication
+L'expression $\sqrt{x}$ est définie pour $x\ge0$.
+L'expression $\frac1x$ est définie pour $x\neq0$.
+L'expression $\ln(x)$ est définie pour $x>0$.
+\finindication
+
+\correction
+On désigne par $\mathcal{D}_f$ l'ensemble de définition de $f$.
+\begin{enumerate}
+    \item $f(x) = \sqrt{-x+3}$.
+    On doit avoir $-x+3\ge0$, c'est-à-dire $3 \ge x$, donc $\mathcal{D}_f = ]-\infty,3]$.
+    
+    \item $f(x) = \frac{1}{x} + \frac{1}{x^2-1}$.
+    Les dénominateurs ne doivent pas s'annuler.
+    Les dénominateurs s'annulent lorsque $x = 0$ ou $x^2-1 = 0$, c'est-à-dire 
+    $x \in \{0,1,-1\}$. 
+    Ainsi 
+    $$\mathcal{D}_f = \Rr \setminus \{0,1,-1\} = ]-\infty,-1[ \cup ]-1,0[ \cup ]0,1[ \cup ]1,+\infty[.$$
+    
+    
+    \item $f(x) = \exp(x^2+1)$.
+    Cette expression est définie pour tout $x$ réel :  $\mathcal{D}_f = \Rr$.
+    
+    \item $f(x) = \ln( 5x + 8 )$.
+    On doit avoir $5x+8 > 0$, c'est-à-dire $x > -\frac85$, donc $\mathcal{D}_f = ]-\frac85,+\infty[$.
+    
+    \item $f(x) = \ln\big( (x-1)(x+2) \big)$.
+    
+    On étudie le signe de $(x-1)(x+2)$ (tableau de signes immédiat plutôt que développement et étude du signe d'un trinôme selon ses racines), qui est strictement positif pour $x>1$ et aussi pour $x<-2$.
+    Donc $\mathcal{D}_f = ]-\infty,-2[ \cup ]1,+\infty[$.
+    
+    \item $f(x) = \sqrt{ x^2+3x-2 }$.
+    On étudie le signe de $x^2+3x-2$. Pour cela on cherche d'abord les solutions de $x^2+3x-2=0$.
+    Les racines sont  $x_1 = \frac{-3 - \sqrt{17}}{2}$ et $x_2 = \frac{-3 + \sqrt{17}}{2}$.
+    Le trinôme $x^2+3x-2$ est positif à l'extérieur des racines, donc 
+    $\mathcal{D}_f = ]-\infty,x_1] \cup [x_2,+\infty[$.
+    
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Soient $f,g : \Rr \to \Rr$ définies par $f(x)=2x+1$ et $g(x)=x^2-3x$.
+\begin{enumerate}
+    \item Déterminer l'expression de la fonction $f \circ g$.
+    \item Déterminer l'expression de la fonction $g \circ f$.
+    \item Montrer que $(g\circ f)(\frac{-1}{2})=0$ et en déduire, pour $x\in \Rr$, la factorisation de l'expression $(g \circ f)(x)$.      
+\end{enumerate} 
+\finenonce
+
+\indication
+$(f \circ g)(x) = f \big( g(x) \big)$ \\
+$(g \circ f)(x) = g \big( f(x) \big)$ \\
+Si un polynôme $P(X)$ s'annule en $X=\alpha$, alors il se factorise par $(X-\alpha)$.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item $f \circ g$
+    $$(f \circ g)(x) = f \big( g(x) \big) = f(x^2-3x) = 2(x^2-3x) + 1 = 2x^2-6x + 1.$$
+    
+    
+    \item $g \circ f$
+$$(g \circ f)(x) = g \big( f(x) \big) = g(2x+1) = (2x+1)^2 -3(2x+1) = (4x^2+4x+1) - (6x+3) = 4x^2-2x -2.$$
+
+   \item Calculons  $(g \circ f)( \tfrac{-1}{2} )$.
+   
+   D'une part $f(-\tfrac12) = 2 (-\tfrac12) + 1 = 0$. 
+   Donc $(g \circ f)( \tfrac{-1}{2} ) = g(0) =0^2 - 3 \times 0 = 0$.
+   
+   D'autre part, on a calculé que $(g \circ f)(x) = 4x^2-2x -2$. Donc on vient de prouver que 
+   $-\tfrac 12 $ est une racine de $4x^2-2x -2$. 
+   On en déduit $4x^2-2x -2 = a(x+\tfrac12)(x-b)$. Par identification on trouve $a=4$ et $b=1$.
+   Conclusion : $4x^2-2x -2 = 4(x+\tfrac12)(x-1)$.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+On veut déterminer la bijection réciproque de la fonction $f$ définie par :
+$$f(x) = \frac{2x-1}{x-3}.$$
+\begin{enumerate}
+    \item Déterminer le domaine de définition de $f$.
+    
+    \item Résoudre l'équation $y = f(x)$, c'est-à-dire déterminer $x$ en fonction de $y$.   
+    Indication : exprimer $x$ sous la forme $x = \frac{ay+b}{cy+d}$.
+    Quelle valeur $y_0$ de $y$ faut-il exclure ?
+    
+    \item On définit $g(y) = \frac{ay+b}{cy+d}$ (où $a,b,c,d$ ont été déterminés à la question précédente). Montrer que $g$ est la bijection réciproque de $f$, c'est-à-dire 
+    $$(g \circ f)(x) = x  \qquad \text{ pour tout } x \neq 3$$
+    et 
+    $$(f \circ g)(y) = y  \qquad \text{ pour tout } y \neq y_0.$$
+\end{enumerate} 
+\finenonce
+
+\indication
+On calcule $x$ en fonction de $y$. En isolant $x$, on doit trouver : $x= \frac{3y-1}{y-2}$.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Le domaine de définition de $f(x) = \frac{2x-1}{x-3}$ est $\Rr \setminus \{ 3 \}$.
+    
+    \item Fixons $y$ et résolvons l'équation $y = f(x)$, avec $x\neq3$, on a les équivalences :   
+    \begin{align*}
+        y = f(x)  
+        & \iff y = \frac{2x-1}{x-3} \iff (x-3)y = 2x-1 \\
+        & \iff xy -2x = 3y-1 \iff x(y-2) = 3y-1 \\
+        & \iff x =  \frac{3y-1}{y-2} \quad \text{ et } y \neq 2 \\
+     \end{align*} 
+    Ces calculs sont valables pour $x \neq 3$ et $y \neq 2$.
+    (On pourrait vérifier que l'équation $f(x) = 2$ n'a pas de solution.)
+    
+    
+    \item 
+    Définissons $g(y) =  \frac{3y-1}{y-2}$ comme fonction définie sur $\Rr \setminus \{ 2 \}$.
+    Vérifions que $g$ est la bijection réciproque de $f$.
+    
+    D'une part, avec $x \neq 3$,  
+    $$g \circ f(x) 
+    = g \left( \frac{2x-1}{x-3} \right) 
+    = \frac{3\frac{2x-1}{x-3}-1}{\frac{2x-1}{x-3}-2}
+    = \frac{3(2x-1) - (x-3)}{2x-1 - 2(x-3)}
+    = \frac{5x}{5}
+    = x
+    $$
+    
+    D'autre part, avec $y \neq 2$,
+    $$f \circ g(y) 
+    = f \left( \frac{3y-1}{y-2} \right) 
+    = \frac{2\frac{3y-1}{y-2}-1}{\frac{3y-1}{y-2}-3} 
+    = \frac{2(3y-1)-(y-2)}{3y-1 -3(y-2)}     
+    = \frac{5y}{5}
+    = y
+    $$    
+    
+    Cela prouve que $f : \Rr \setminus \{ 3 \} \to \Rr \setminus \{ 2 \}$ et
+    $g : \Rr \setminus \{ 2 \} \to \Rr \setminus \{ 3 \}$
+    sont des bijections réciproques l'une de l'autre.
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Raisonnements}
+
+
+\exercice{}
+\enonce[Preuve au cas par cas]
+\sauteligne
+\begin{enumerate}
+    \item Montrer, en utilisant une disjonction de cas, que pour tout entier $n$, le produit $n(n+1)(2n+1)$ est divisible par $6$.
+    
+    \item Montrer que tout nombre premier supérieur à $5$ s'écrit soit sous la forme $6k+1$, soit sous la forme $6k-1$ ($k \in \Nn$).
+\end{enumerate}
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Distinguer les cas $n=3k$, $n=3k+1$ ou $n=3k+2$. Il faut montrer que $n(n+1)(2n+1)$ est divisible par $2$ et par $3$.
+    
+    \item Distinguer les cas $n=6k$, $n=6k+1$, $n=6k+2$, $n=6k+3$, $n=6k+4$ ou $n=6k+5$ (ce dernier cas s'écrit aussi $n=6k'-1$). 
+\end{enumerate}
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item On distingue les cas selon le reste de la division de $n$ par $3$ (c'est-à-dire qu'on regarde $n$ modulo $3$).
+    Au préalable, remarquons que $n$ ou $n+1$ est un nombre pair donc $n(n+1)(2n+1)$ est déjà divisible par $2$. Il reste à montrer qu'il est aussi divisible par $3$.
+    \begin{itemize}
+        \item Si $n=3k$ (pour un certain $k\in\Zz$), alors $n$ est divisible par $3$ donc $n(n+1)(2n+1)$ aussi.
+        
+        \item Si $n=3k+1$, alors $2n+1 = 2(3k+1)+1 = 6k+3$ est divisible par $3$ donc $n(n+1)(2n+1)$ aussi.    
+            
+        \item Si $n=3k+2$, alors $n+1 = 3k+3$ est divisible par $3$ donc $n(n+1)(2n+1)$ aussi.           
+     \end{itemize}
+  Dans tous les cas   $n(n+1)(2n+1)$ est divisible par $2$ et par $3$ donc par $6$.
+    
+    \item Distinguons les cas selon le reste de la division de $n$ par $6$ (c'est-à-dire qu'on regarde $n$ modulo $6$).
+    \begin{itemize}
+    \item Si $n=6k$, alors $n$ ne peut pas être premier car divisible par $6$.
+    
+    \item Si $n=6k+1$, rien ne permet d'exclure ce cas a priori.
+    
+    \item Si $n=6k+2$, alors $n$ est pair, donc ne peut pas être premier.
+       
+    \item Si $n=6k+3$, alors $n$ est divisible par $3$, donc ne peut pas être premier.    
+    
+    \item Si $n=6k+4$, alors $n$ est pair, donc ne peut pas être premier.    
+    
+   \item Si $n=6k+5$, rien ne permet d'exclure ce cas a priori.        
+\end{itemize}
+Les seuls cas où $n$ peut être un nombre premier sont les $n$ de la forme $6k+1$ et $6k+5$ (qui s'écrit aussi $6k'-1$ en posant $k'=k+1$).
+  
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce[Raisonnement par l'absurde]
+\sauteligne
+\begin{enumerate}
+    \item Soient $n, a, b$ trois entiers naturels tels que $n=ab$. Montrer que $a$ ou $b$ est inférieur ou égal à $\sqrt{n}$.
+    
+    \item Soit $a \in \Rr^+$ un réel positif. Montrer :
+    \center{Si "$\forall \epsilon>0 \ \ a \leq \epsilon$" alors $a=0$.}
+\end{enumerate} 
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=ab$. Par l'absurde si $a$ et $b$ sont plus grand que $\sqrt{n}$ alors...
+    
+    \item Soit $a \geq 0$ tel que "$\forall \epsilon>0, \; a \leq \epsilon$". Par l'absurde si $a \neq 0$ alors...
+\end{enumerate}
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Supposons par l'absurde que "$a>\sqrt{n}$ \textbf{et} $b>\sqrt{n}$", alors $ab > \sqrt{n} \times \sqrt{n} = n$. On a d'une part $ab=n$ mais aussi $ab>n$ ce qui fournit une contradiction.
+    Conclusion : notre hypothèse de départ est fausse. Ainsi, on a "$a \le\sqrt{n}$ \textbf{ou} $b\le\sqrt{n}$".
+    
+    \item Soit $a \in \Rr^+$ tel que :
+    $$\forall \epsilon>0 \quad a \leq \epsilon.$$
+    Par l'absurde supposons "$a \neq 0$". On aura ainsi $a > 0$.\\
+    Choisissons $\epsilon = \frac{a}{2}$. Alors d'une part $0 < \epsilon < a$, mais d'autre part pour cet $\epsilon$ on a $a \le \epsilon$ (vu que c'est vrai pour tout $\epsilon$). On obtient une contradiction. Notre hypothèse  "$a \neq 0$" est donc fausse. Ce qui prouve $a=0$.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce[Raisonnement par contraposition]
+\sauteligne
+\begin{enumerate}
+    \item Soit $n \in \Nn^\star$ un entier naturel non nul. Montrer par contraposition :\\
+    \centerline{$n^2-1$ n'est pas divisible par $8$ \quad $\implies \quad n$ est pair}
+    
+    \item Soient $x,y \in \Rr$ deux nombres réels. Montrer par contraposition :\\
+    \centerline{$x\neq y \quad  \implies \quad (x+1)(y-1)\neq (x-1)(y+1)$}
+\end{enumerate}
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Il s'agit donc de prouver :\\
+    \centerline{$n$ impair \quad  $\implies$ \quad  $n^2-1$ est divisible par $8$}
+    
+    \item  Il s'agit donc de prouver :\\
+    \centerline{$ (x+1)(y-1) = (x-1)(y+1) \quad  \implies \quad  x = y$}
+\end{enumerate}
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item La contraposition de :\\
+    \centerline{$n^2-1$ n'est pas divisible par $8$ \quad $\implies \quad n$ est pair}
+    est \\
+    \centerline{$n$ impair \quad $\implies$ \quad $n^2-1$ est divisible par $8$}
+    
+    Prouvons cette dernière assertion :
+    Soit $n$ un entier impair, il s'écrit donc $n=2k+1$ (pour un certain entier $k$), alors 
+    $n^2-1 = (2k+1)^2-1 = 4k^2+4k = 4k(k+1)$. Or $k(k+1)$ est toujours divisible par $2$, donc $n^2-1 = 4k(k+1)$ est divisible par $8$.
+    
+    Comme la contraposée est prouvée alors l'assertion initiale est aussi vraie.
+    
+    
+    \item  La contraposition de :\\
+    \centerline{$x\neq y \quad \implies \quad (x+1)(y-1)\neq (x-1)(y+1)$}
+     est \\
+    \centerline{$ (x+1)(y-1) = (x-1)(y+1) \quad \implies \quad x = y$}
+    
+     Prouvons cette dernière assertion :
+     soient $x$ et $y$ tels que  $(x+1)(y-1) = (x-1)(y+1)$ alors 
+     \begin{align*}
+     (x+1)(y-1) = (x-1)(y+1)
+     & \implies  xy -x +y -1 = xy+x-y-1   \\ 
+     & \implies 2y = 2x \\
+     &\implies x=y
+     \end{align*}
+   Comme la contraposée est vraie alors l'assertion initiale est aussi vraie.
+   
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce[Preuve par récurrence]
+\sauteligne
+\begin{enumerate}
+    \item Soit $n \in \Nn^\star$. Démontrer par récurrence l'inégalité $2^n > n$.
+    
+    \item Montrer que l'on a, pour tout entier naturel $n \ge 1$ :
+    $$ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $$
+    
+    \item On définit par récurrence la suite $(u_n)_{n \in \Nn}$ comme ceci :
+    $$\left\{\begin{array}{l}
+    u_0 = 0  \\
+    \text{et } u_{n+1} = 2 u_n + 1 \  \text{ pour } n \ge 0.
+    \end{array}\right.
+    $$
+    \begin{enumerate}
+        \item Calculer les premiers termes de la suite $(u_n)$, et émettre une conjecture quant à l'expression de son terme général.
+        \item Montrer par récurrence que $u_n = 2^n - 1$.
+    \end{enumerate}
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item 
+    Pour $n\ge 1$, on note $\mathcal{P}_n$ l'assertion $2^n>n$.
+    \begin{itemize}
+        \item \textbf{Initialisation.} $\mathcal{P}_1$ est vraie car pour $n=1$, $2^1>1$.
+        
+        \item \textbf{Hérédité.}
+        Fixons $n\ge1$.
+        Supposons que pour ce rang $n$, $\mathcal{P}(n)$ soit vraie, c'est-à-dire $2^n>n$.
+        On veut montrer que $\mathcal{P}(n+1)$ est vraie, c'est-à-dire $2^{n+1}>n+1$.
+        
+        \'Ecrivons :
+        $$2^{n+1} = 2 \times 2^n> 2 \times n \ge n+1.$$
+        On a utilisé l'hypothèse de récurrence $2^n > n$ (et aussi que $2n \ge n+1$).
+        La propriété est donc héréditaire.
+        
+        \item \textbf{Conclusion.} Par le principe de récurrence, quel que soit $n \ge 1$, on a $2^n>n$.
+    \end{itemize}
+   \item 
+   Pour $n\ge 1$, on note $\mathcal{P}_n$ l'assertion $ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $.
+   \begin{itemize}
+    \item \textbf{Initialisation.} $\mathcal{P}_1$ est vraie car pour $n=1$, $1=1^2$.
+    
+    \item \textbf{Hérédité.}
+    Fixons $n\ge1$.
+    Supposons que pour ce rang $n$, $\mathcal{P}(n)$ soit vraie, c'est-à-dire $ 1 + 3 + 5 + \cdots + 2n-1 = n^2 $.
+    On veut montrer que $\mathcal{P}(n+1)$ est vraie, c'est-à-dire 
+    $$ 1 + 3 + 5 + \cdots + (2n-1) +(2(n+1)-1) = (n+1)^2 .$$
+    
+    \'Ecrivons :
+    $$\underbrace{1 + 3 + 5 + \cdots + (2n-1)}_{= n^2 \text{ par hyp. de rec.}} + (2n+1)
+    = n^2 + (2n +1) = (n+1)^2$$
+    Ainsi $\mathcal{P}(n+1)$ est vraie.
+    La propriété est donc héréditaire.
+    
+    \item \textbf{Conclusion.} Par le principe de récurrence, quel que soit $n \ge 1$, on a $ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $.
+   \end{itemize}
+
+   \item 
+   $u_0 = 0$, $u_1 = 2u_0+1 = 1$, $u_2 = 2u_1+1 = 3$, $u_3=2u_2+1=7$, $u_4=2u_3+1=15$,\ldots
+    
+    Montrons par récurrence que $u_n = 2^n - 1$ pour tout $n\ge0$.
+    \begin{itemize}
+        \item \textbf{Initialisation.} Pour $n=0$, on a bien  $u_0=0=2^0-1$.
+        
+        \item \textbf{Hérédité.}
+        Fixons $n\ge0$ et supposons $u_n = 2^n-1$.
+        Alors 
+        $$u_{n+1} = 2u_n+1 = 2 \times (2^n-1) + 1 = 2 \times 2^n - 1 = 2^{n+1}-1.$$
+        Ainsi la propriété est vraie au rang $n+1$.
+        
+        \item \textbf{Conclusion.} Par le principe de récurrence, $u_n = 2^n - 1$ quel que soit $n \ge 0$.
+    \end{itemize}
+    
+
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+
+
+\end{document}

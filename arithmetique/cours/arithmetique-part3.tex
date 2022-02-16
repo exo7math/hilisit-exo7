@@ -1,0 +1,147 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Arithmétique -- Partie 3 : Nombres premiers} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Connaître la définition de nombre premier.
+        \item Savoir qu'il en existe une infinité.
+        \item Connaître le lemme d'Euclide.
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir calculer une décomposition en facteurs premiers.
+        \item Savoir en déduire des pgcd et ppcm.
+	\end{itemize}
+}
+
+
+
+\bigskip
+
+
+%-----------------------------------------
+\subsection*{Les nombres premiers}
+
+\begin{itemize}
+    \item \textbf{Définition.} Un \textbf{nombre premier} est un entier naturel supérieur ou égal à $2$ qui n'est divisible que par $1$ et par lui-même.
+    
+    \item \emph{Exemple.} $2,3,5$ ou encore $17$ sont des nombres premiers.
+    En revanche $9=3\times3$ ou encore $14=2\times7$ ne sont pas premiers.
+    
+    \item \textbf{Lemme.} Tout entier naturel $n \geq 2$ admet un diviseur premier.
+    
+    \item \emph{Démonstration.}
+    Si $n$ est lui-même premier, il n'y a rien à démontrer (car $n$ se divise lui-même).\\
+    Sinon, cela signifie que $n$ admet un diviseur strictement compris entre $1$ et $n$. Notons $\mathcal{D}$ l'ensemble des diviseurs de $n$ strictement compris entre $1$ et $n$. Cet ensemble d'entiers est non vide, donc il possède un plus petit élément, que nous noterons $p$.\\
+    Supposons par l'absurde que $p$ ne soit pas premier, alors il possède lui-même un diviseur $q$ strictement compris entre $1$ et $p$. Mais $q|p$ et $p|n$ donc $q|n$. Ainsi $q$ est un diviseur de $n$ (qui n'est pas $1$) et qui est plus petit que $p$. Ceci est une contradiction car $p$ est le plus petit diviseur de $n$.\\
+    Donc $p$ est premier, et par conséquent $n$ est bien divisible par un nombre premier.
+\end{itemize}
+
+\textbf{Théorème (Euclide).}
+\mybox{Il existe une infinité de nombres premiers.}
+
+
+\emph{Démonstration.}
+Voilà la démonstration d'Euclide, par l'absurde :\\
+    Supposons que l'ensemble des nombres premiers soit fini : on les note alors $p_1, p_2, ..., p_n$. Soit 
+    $$N := p_1 \times p_2 \times \cdots \times p_n \ + 1 = \prod_{i=1}^n p_i \ + \ 1$$
+     $N$ admet un diviseur premier d'après le lemme précédent. Notons $p_k$ un tel diviseur. $p_k|N$, mais $p_k | (\prod_{i=1}^n p_i)$ donc $p_k|N-(\prod_{i=1}^np_i)=1$. Ainsi $p_k|1$ donc $p_k=1$ ce qui est une contradiction avec $p_k\geq2$.\\
+    Ceci démontre par l'absurde que l'ensemble des nombres premiers est infini.
+
+
+%-----------------------------------------
+\subsection*{Lemme d'Euclide}
+
+\textbf{Lemme d'Euclide.}
+Soit $p$ un nombre premier et $a$ et $b$ deux entiers. 
+\mybox{Si $p|ab$, alors $p|a$ ou $p|b$.}
+
+\emph{Démonstration.}
+Supposons que $p$ ne divise pas $a$. Ceci signifie que $\pgcd(p,a)=1$ puisque les seuls diviseurs de $p$ sont $p$ et $1$. On applique le lemme de Gauss : $p|ab$ et $\pgcd(p,a)=1 \implies p|b$.
+
+\bigskip
+
+\emph{Exercice.}
+Soit $p$ un nombre premier, montrer que $\sqrt{p}$ n'est pas un rationnel en utilisant le lemme de Gauss.
+
+
+%-----------------------------------------
+\subsection*{Décomposition en produit de facteurs premiers}
+
+\textbf{Décomposition en produit de facteurs premiers.}
+Soit un entier $n \geq 2$. Il existe une unique suite de nombres premiers $p_1<p_2<\cdots<p_k$ et une unique suite d'exposants entiers positifs non nuls $\alpha_1,\alpha_2,...,\alpha_k$ tel que : 
+$$n = p_1^{\alpha_1} \times p_2^{\alpha_2} \times \cdots \times p_k^{\alpha_k} = \prod_{i=1}^k p_i^{\alpha_i}$$
+
+\emph{Remarques.}
+\begin{itemize}
+        \item Les démonstrations de l'existence et de l'unicité de cette décomposition peuvent s'effectuer par récurrence. % sur l'entier $n$... Essayez !
+        % \item Le nombre $\alpha_i$ s'appelle \textbf{l'exposant} de $p_i$ dans $n$. On peut d'ailleurs remarquer que $n$ est un carré si et seulement si tous les exposants sont pairs !
+        \item L'entier $n$ admet au moins un facteur premier $p_i$ tel que $p_i\leq \sqrt{n}$ ; si ce n'est pas le cas, cela signifie que $n$ est premier ! Ceci est pratique pour démontrer qu'un nombre fixé est premier ou non.
+\end{itemize}
+
+\emph{Exemples.}
+\begin{itemize}
+    \item Le nombre $271$ est un nombre premier. En effet, il n'est pas divisible par $2, 3, 5, 7, 11$ ou $13$. Et cela suffit à assurer qu'il est premier puisque $\sqrt{271}\simeq16,5<17$
+    
+    \item Recherchons la décomposition en facteurs premiers de $1\,188$ :
+    $$1\,188=2\times594=2^2\times297=2^2\times3\times99=
+    2^2\times3^2\times33=2^2\times3^3\times11$$
+    Et cette dernière égalité est bien la décomposition en facteurs premiers.
+\end{itemize}
+
+
+%-----------------------------------------
+\subsection*{pgcd}
+
+\textbf{Proposition.}
+Soient deux entiers $n=\prod_{i=1}^k p_i^{\alpha_i}$ et $m=\prod_{i=1}^k p_i^{\beta_i}$ (avec $\alpha_i$ et $\beta_i$ éventuellement nuls). On a alors :
+$$ \begin{cases} 
+\pgcd(n,m) & = \prod_{i=1}^k p_i^{\min(\alpha_i,\beta_i)} \\ 
+\ppcm(n,m) & = \prod_{i=1}^k p_i^{\max(\alpha_i,\beta_i)} 
+\end{cases}$$
+
+En d'autres termes, on compare les exposants des nombres entiers $p$ présents dans les décompositions de $m$ et de $n$. Le plus petit exposant (c'est éventuellement $0$) sera celui de $\pgcd(n,m)$, et le plus grand exposant est celui de $\ppcm(n,m)$.
+
+\bigskip
+
+\emph{Exemple.}
+Reprenons l'exemple de $1\,188$ et de $120$. 
+
+\begin{itemize}
+    \item On a déjà obtenu la décomposition en facteurs premiers de $1\,188=2^2\times3^3\times11$. 
+    
+    \item Recherchons celle de $120$ :    
+    $120 = 2\times 60 = 2^2\times 30 = 2^3\times 15 = 2^3 \times 3 \times 5$.
+    
+    \item Réécrivons les décompositions en faisant apparaître tous les facteurs premiers présents dans au moins l'une des décompositions :
+    $$ \begin{cases} 
+    \textcolor{red}{1\,188} & = \textcolor{red}{2^2 \times 3^3 \times 5^0 \times 11^1} \\
+    \textcolor{blue}{120} & = \textcolor{blue}{2^3 \times 3^1 \times 5^1 \times 11^0} \end{cases} $$
+    On obtient alors leur pgcd et leur ppcm en choisissant respectivement le plus petit et le plus grand des exposants pour chaque facteur premier :
+    $$ \begin{cases} 
+    \pgcd(1\,188,120) & = 2^{\textcolor{red}{2}} \times 3^{\textcolor{blue}{1}} \times 5^{\textcolor{red}{0}} \times 11^{\textcolor{blue}{0}}  = 4\times3=12 \\
+    \ppcm(1\,188,120) & = 2^{\textcolor{blue}{3}} \times 3^{\textcolor{red}{3}} \times 5^{\textcolor{blue}{1}} \times 11^{\textcolor{red}{1}}  = 8\times27\times5\times11=11\,880\\ \end{cases}$$
+\end{itemize}
+
+\bigskip
+
+\emph{Exercice.}
+Déterminer les décompositions en produit de facteurs premiers de $585$ et de $247$, puis en déduire leur pgcd et leur ppcm.
+
+
+
+\end{document}

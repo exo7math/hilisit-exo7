@@ -1,0 +1,86 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Logique, ensembles et raisonnements -- Partie 2}
+
+\bigskip
+\bigskip
+
+
+\exercice{}
+\enonce
+Remplacer les pointillés par le symbole le plus adapté parmi $\in$, $\notin$, $\subset$, $\supset$.
+
+\begin{enumerate}
+    \item $ [3,5] \qquad \ldots\ldots \qquad \{ x \in \Rr \mid 2 \le x \le 7 \} $
+    \item $ 2 \qquad \ldots\ldots \qquad \{ x \in \Rr \mid x^2 \ge 5 \} $
+    \item $\pi = 3.14\dots  \qquad \ldots\ldots \qquad \Rr \setminus \Qq $
+    \item $[1,9] \qquad \ldots\ldots \qquad [1,4] \cup [5,9] $
+    \item $\{ 0 \} \qquad \ldots\ldots \qquad \Rr_+$
+    \item $0 \qquad \ldots\ldots \qquad \Zz \setminus \Nn $   
+    \item $[-7,5] \cap [-2,8] \qquad \ldots\ldots \qquad [-1,1] $  
+\end{enumerate}    
+\finenonce
+
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Déterminer le domaine de définition de la fonction $x \mapsto f(x)$ dans chacun des cas suivants :
+\begin{enumerate}
+    \item $f(x) = \sqrt{-x+3}$
+    \item $f(x) = \frac{1}{x} + \frac{1}{x^2-1}$
+    \item $f(x) = \exp(x^2+1)$
+    \item $f(x) = \ln( 5x + 8 )$
+    \item $f(x) = \ln\big( (x-1)(x+2) \big)$
+    \item $f(x) = \sqrt{ x^2+3x-2 }$
+\end{enumerate} 
+\finenonce
+
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Soient $f,g : \Rr \to \Rr$ définies par $f(x)=2x+1$ et $g(x)=x^2-3x$.
+\begin{enumerate}
+    \item Déterminer l'expression de la fonction $f \circ g$.
+    \item Déterminer l'expression de la fonction $g \circ f$.
+    \item Montrer que $(g\circ f)(\frac{-1}{2})=0$ et en déduire, pour $x\in \Rr$, la factorisation de l'expression $(g \circ f)(x)$.      
+\end{enumerate} 
+\finenonce
+
+\finexercice
+
+
+\exercice{}
+\enonce
+On veut déterminer la bijection réciproque de la fonction $f$ définie par :
+$$f(x) = \frac{2x-1}{x-3}.$$
+\begin{enumerate}
+    \item Déterminer le domaine de définition de $f$.
+    
+    \item Résoudre l'équation $y = f(x)$, c'est-à-dire déterminer $x$ en fonction de $y$.   
+    Indication : exprimer $x$ sous la forme $x = \frac{ay+b}{cy+d}$.
+    Quelle valeur $y_0$ de $y$ faut-il exclure ?
+    
+    \item On définit $g(y) = \frac{ay+b}{cy+d}$ (où $a,b,c,d$ ont été déterminés à la question précédente). Montrer que $g$ est la bijection réciproque de $f$, c'est-à-dire 
+    $$(g \circ f)(x) = x  \qquad \text{ pour tout } x \neq 3$$
+    et 
+    $$(f \circ g)(y) = y  \qquad \text{ pour tout } y \neq y_0.$$
+\end{enumerate} 
+\finenonce
+
+
+\finexercice
+
+
+\end{document}

@@ -1,0 +1,753 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+    
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Exercices -- Arithmétique}
+
+\bigskip
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{pgcd}
+
+\exercice{}
+\enonce
+\sauteligne
+ \begin{enumerate}
+  \item Chercher le plus petit entier positif divisible par $11$ et dont le reste de la division par $13$ est $1$.
+  
+  \item Chercher le plus petit entier positif dont le reste de la division par $8$ est $5$ et le reste de la division par $9$ est $6$.
+\end{enumerate} 
+\finenonce
+
+\indication
+Commencer par écrire tous les multiples de $11$ et effectuer ensuite la division euclidienne par $13$.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+  \item 
+Les entiers divisibles par $11$ sont les multiples de $11$ : $0$, $11$, $22$, \ldots{} Ils sont de la forme $11k$ pour un certain entier $k$.
+
+$$\begin{array}{c|c|c}
+k & 11 k & \text{reste par $13$} \\ \hline
+1  &  11  &  11 \\
+2  &  22  &  9 \\
+3  &  33  &  7 \\
+4  &  44  &  5 \\
+5  &  55  &  3 \\
+6  &  66  &  1 \\
+\end{array}$$
+
+On note sur la dernière colonne que le reste de $11k$ divisé par $13$ diminue ici de deux en deux et pour $k=6$ on obtiendra le reste $1$. Ainsi le nombre cherché est $n=66$ : c'est un multiple de $11$ et le reste de la division par $13$ est bien $1$ car $66 = 13 \times 5 +1$.
+
+  
+  \item Les entiers dont le reste de la division par $8$ est $5$ sont de la forme $8k+5$ pour un certain entier $k$. Reprenons la même méthode, on calcule tous les entiers de la forme $8k+5$ et le reste de division par $9$ :
+$$\begin{array}{c|c|c}
+k & 8 k + 5 & \text{reste par $9$} \\ \hline
+0  &  5  &  5 \\
+1  &  13  &  4 \\
+2  &  21  &  3 \\
+3  &  29  &  2 \\
+4  &  37  &  1 \\
+5  &  45  &  0 \\
+6  &  53  &  8 \\
+7  &  61  &  7 \\
+8  &  69  &  6 \\
+\end{array}$$  
+ On note sur la dernière colonne que le reste "diminue de $1$" à chaque ligne et pour  $k=8$ on obtiendra le reste $6$. Ainsi le nombre cherché est $n=8\times8+5=69$ qui s'écrit aussi $69=6\times9+6$. 
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=p^2$ le carré d'un entier. Quel peut être le reste de la division de $n$ par $4$ selon que $p$ est pair ou impair ?
+    \item Montrer que si $n$ est un entier naturel somme de deux carrés d'entiers 
+    alors le reste de la division de $n$ par $4$ n'est jamais égal à $3$.
+\end{enumerate}
+
+
+\finenonce 
+
+\indication
+Si $p$ est pair, alors $p=2k$ donc $p^2 = \ldots${}
+Si $p$ est impair, alors $p=2k+1$\ldots
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=p^2$. 
+    \begin{itemize}
+      \item Si $p$ est pair, alors $p=2k$ (pour un certain entier $k$) donc $n=p^2 = (2k)^2 = 4k^2$ est un multiple de $4$. Dans ce cas le reste de la division de $n$ par $4$ est $0$.
+    
+      \item Si $p$ est impair, alors $p=2k+1$ donc $n=p^2 = (2k+1)^2 = 4k^2+4k+1 = 4(k^2+k) + 1$, c'est l'écriture de la division euclidienne de $n$ par $4$. Donc le reste de la division de $n$ par $4$ est $1$.
+    
+      \item Conclusion : pour $n=p^2$ alors le reste de la division de $n$ par $4$ est soit $0$, soit $1$ (mais ne peut pas être $2$, ni $3$).
+    \end{itemize}
+    
+    \item Soit $n=p^2+q^2$.
+    On discute selon que $p$ et $q$ sont pairs ou impairs. Il y a donc $4$ cas possibles.
+    \begin{itemize}
+         \item Si $p$ est pair et $q$ est pair. Alors par la question précédente le reste de la division de $p^2$ par $4$ est $0$, de même que celui de la division de $q^2$ par $4$. Ainsi le reste de la division de $n=p^2+q^2$ est $0+0$, il vaut donc $0$.
+         
+         \item Si $p$ est pair et $q$ est impair, alors le reste de la division de $n=p^2+q^2$ est $0+1$, il vaut donc $1$.
+           
+         \item Si $p$ est impair et $q$ est pair, alors le reste de la division de $n=p^2+q^2$ est $1+0$, il vaut donc $1$.       
+         
+         \item Si $p$ est impair et $q$ est impair, alors le reste de la division de $n=p^2+q^2$ est $1+1$, il vaut donc $2$.  
+   \end{itemize}   
+
+    Dans tous les cas le reste de $n$ divisé par $4$ ne peut pas être $3$.
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Déterminer $\pgcd(254, 26)$, $\pgcd(654, 115)$ à l'aide de l'algorithme d'Euclide.
+\finenonce
+
+\indication
+Calculer une succession de divisions euclidiennes.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item   
+    Calculons $\pgcd(254,26)$.
+    $$
+    \begin{array}{rclclcl}
+    254 & = & 26 & \times & 9 & + & 20 \\
+    26 & = & 20  & \times & 1 & + & 6 \\
+    20  & = & 6  & \times & 3 & + & \boxed{2} \\
+    6  & = & 2  & \times & 3 & + & 0 \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(254,26) = 2$.
+    
+    
+    \item 
+    Calculons $\pgcd(654,115)$.
+$$
+\begin{array}{rclclcl}
+654 & = & 115 & \times & 5 & + & 79 \\
+115 & = & 79  & \times & 1 & + & 36 \\
+79 & = & 36  & \times & 2 & + & 7 \\
+36 & = & 7  & \times & 5 & + & \boxed{1}  \\
+7  & = & 1  & \times & 7 & + & 0 \\
+\end{array}
+$$
+Ainsi $\pgcd(654,115) = 1$.    
+    
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Déterminer $\ppcm(255, 204)$.
+\finenonce
+
+\indication
+Utiliser le lien entre $\pgcd$ et $\ppcm$...
+\finindication
+
+\correction
+\sauteligne
+On va utiliser la relation
+$$ 255 \times 204 = \pgcd(255,204) \times \ppcm(255,204) $$ 
+    Calculons donc $\pgcd(255,204)$.
+    $$
+    \begin{array}{rclclcl}
+    255 & = & 204 & \times & 1 & + & \boxed{51} \\
+    204 & = & 51  & \times & 4 & + & 0 \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(255,204) = 51$. On en déduit donc :
+    $$ \ppcm(255,204) = \frac{255 \times 204}{\pgcd(255,204)} = \frac{255 \times 204}{51} = \boxed{ \; 1020 \;} $$
+\fincorrection
+\finexercice
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Théorème de Bézout}
+
+
+\exercice{}
+\enonce
+Soit $a=84$ et $b=75$. Calculer $d=\pgcd(a,b)$ à l'aide de l'algorithme d'Euclide, puis déterminer des coefficients de Bézout $u,v \in \Zz$ tels que $au+bv=d$.
+
+Même exercice avec $a=624$ et $b=108$.
+\finenonce
+
+\indication
+Les coefficients de Bézout s'obtiennent par remontée de l'algorithme d'Euclide.
+\finindication
+
+\correction
+\sauteligne
+
+\begin{enumerate}
+    \item   
+    Calculons $\pgcd(84,75)$ par l'algorithme d'Euclide :
+    $$
+    \begin{array}{rclclcl}
+    84 & = & 75 & \times & 1 & + & 9 \\
+    75 & = & 9  & \times & 8 & + & \boxed{3} \\
+    9  & = & 3  & \times & 3 & + & 0 \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(84,75) = 3$.
+    
+    Maintenant nous reprenons ces égalités en partant de la fin (avant-dernière ligne) :
+    $$\boxed{3} = 75 - 9 \times 8$$
+    On va remplacer le $9$ de cette égalité.
+    
+    La première ligne fournit l'égalité :
+    $$9 = 84 -75 \times 1$$
+    
+    Donc 
+    $$\boxed{3} = 75 - \big(84 -75 \times 1 \big) \times 8$$
+    On garde précieusement les entiers $84$ et $75$ et on ne cherche pas à simplifier, on factorise juste :
+    $$\boxed{3} = 84 \times (-8)  + 75 \times 9$$
+    Ainsi $u=-8$ et $v=9$ conviennent. C'est une bonne idée de faire une vérification rapide.
+    
+    
+    \item 
+    Calculons $\pgcd(624,108)$.
+    $$
+    \begin{array}{rclclcl}
+    624 & = & 108 & \times & 5 & + & 84 \\
+    108 & = & 84  & \times & 1 & + & 24 \\
+    84 & = & 24  & \times & 3 & + & \boxed{12} \\
+    24 & = & 12  & \times & 2 & + & 0  \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(624,108) = 12$. 
+    
+    Remontons ces égalités, tout d'abord l'avant-dernière ligne donne le pgcd :
+    $$\boxed{12} = 84 -24 \times 3$$
+    Mais par la ligne au-dessus on a 
+    $$24 = 108 - 84 \times 1$$
+    On remplace $24$ dans l'égalité ci-dessus :
+    $$\boxed{12} = 84 - \big( 108 - 84 \times 1\big)\times 3$$
+    On factorise (sans trop simplifier) :
+    $$\boxed{12} = 108 \times (-3)  + 84 \times 4$$
+    La première ligne donne :
+    $$84 = 624 - 108 \times 5$$
+    ce qui nous donne
+    $$\boxed{12} = 108 \times (-3)  + \big( 624 - 108 \times 5 \big) \times 4$$
+    On factorise pour obtenir :
+    $$\boxed{12} = 624 \times 4 + 108 \times (-23)$$
+    Ainsi les coefficients de Bézout sont $u=4$ et $v-23$.
+    
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Nous allons montrer que \og{}Deux entiers consécutifs sont toujours premiers entre eux.\fg{}
+\begin{enumerate}
+    \item \emph{Première méthode.} On considère deux entiers consécutifs notés $n$ et $n+1$. Montrer que si $d$ divise $n$ et $n+1$ alors nécessairement $d=1$. 
+    
+    \item \emph{Seconde méthode.} Soit $a=n$ et $b=n+1$. Trouver $u,v \in \Zz$ (très simples) tels que $au+bv=1$. Conclure.
+\end{enumerate} 
+\finenonce
+
+\indication
+Pour la première méthode considérer une différence.
+Pour la seconde méthode, utiliser la variante du théorème de Bézout.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Si $d$ divise $n$ et $n+1$ alors $d$ divise aussi la différence $(n+1) - n$ (qui vaut $1$), donc $d$ divise $1$. Ainsi $d=1$ (ou $d=-1$) et $\pgcd(n,n+1)=1$.
+    
+    \item Avec $u=-1$ et $v=+1$ on a $nu+(n+1)v=1$. Par la variante du théorème de Bézout \og{}$a$ et $b$ sont premiers entre eux $\iff$ il existe $(u,v) \in \Zz^2$ tels que $au+bv=1$\fg{}, cela implique que $n$ et $n+1$ sont premiers entre eux.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Soit $\alpha \in \Zz$ un entier fixé que l'on cherchera à déterminer par la suite. Pour $k \in \Zz$, on pose : $N_1(k) = 7k+11$ et $N_2(k) = 2k + \alpha$.
+\begin{enumerate}
+    \item Déterminer deux entiers $u,v$ tels que le nombre $u N_1(k) + v N_2(k)$ ne dépende pas de l'entier $k$.
+    
+    \item En déduire une valeur de $\alpha$ pour obtenir $\pgcd(N_1(k) , N_2(k)) = 1$ pour tout entier $k$.
+    
+    \item Application : en déduire $\pgcd(95,27)$ d'une part, et $\ppcm(361,103)$ d'autre part.
+\end{enumerate}
+\finenonce
+
+\indication
+On cherche "des bons coefficients" pour obtenir une relation de Bézout traduisant le fait que $N_1(k)$ et $N_2(k)$ sont premiers entre eux ! Ensuite, on peut utiliser le lien entre $\pgcd$ et $\ppcm$...
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item En prenant $u = 2$ et $v = -7$, on obtient l'égalité :
+    $$ u N_1(k) + v N_2(k) = 2 ( 7k+11) + (-7) ( 2k + \alpha) = 22 - 7 \alpha $$
+    Cette quantité ne dépend donc plus de l'entier $k$. (On aurait aussi pu prendre $u=-2$ et $v=7$).
+    
+    \item Si l'on fixe $\alpha$ tel que $ u N_1(k) + v N_2(k) = 1$, le théorème de Bézout nous garantira l'obtention de $\pgcd(N_1(k) , N_2(k)) = 1$ pour tout entier $k$. On va donc fixer :
+    $$ 22 - 7 \alpha = 1 \iff \alpha = 3 $$
+    
+    \item On remarque que pour $k=12$, on obtient :
+    $$ N_1(12) = 7 \times 12 + 11 = 95 \qquad ; \qquad N_2(12) = 2 \times 12 + 3 = 27 $$
+    D'après ce qui précède, on sait donc que $\pgcd(N_1(12) , N_2(12)) = \pgcd(95,27) = 1$.\\
+    On a ensuite pour $k = 50$ :
+    $$ N_1(50) = 7 \times 50 + 11 = 361 \qquad ; \qquad N_2(50) = 2 \times 50 + 3 = 103 $$
+    D'après nos résultats précédents, on sait que $\pgcd(N_1(50) , N_2(50)) = \pgcd(361,103) = 1$. Par conséquent, on a :
+    $$ \ppcm (361,103) = \frac{361 \times 103}{1} = 37\, 183 $$
+\end{enumerate}
+\fincorrection
+\finexercice
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Nombres premiers}
+
+\exercice{}
+\enonce
+Trouver tous les nombres premiers plus petits que $100$.
+\finenonce
+
+\indication
+Il s'agit d'écarter les entiers qui ne sont pas des nombres premiers car divisibles par $2$ ou par $3$...
+\finindication
+
+\correction
+Les nombres premiers jusqu'à $100$ sont :
+$$2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97$$
+
+On les obtient simplement par une méthode appelée le \emph{crible d'Ératosthène} :
+\begin{itemize}
+    \item en excluant d'abord tous les entiers pairs (sauf $2$ bien sûr),
+    \item puis tous les entiers divisibles par $3$ (sauf $3$),
+    \item on n'a pas besoin d'exclure les multiples de $4$ car ils sont déjà exclus en tant que multiples de $2$,
+    \item ensuite on exclut les multiples de $5$ (sauf $5$),
+    \item les multiples de $6$ sont déjà exclus (ce sont des multiples de $2$ et de $3$),
+    \item il reste à exclure les multiples de $7$,
+    \item les multiples de $8$, $9$, $10$ sont déjà exclus,
+    \item et c'est terminé car un entier non premier plus petit que $100$ doit avoir un facteur inférieur à $\sqrt{100}=10$.
+\end{itemize}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Calculer la décomposition en facteurs premiers de $a$ puis de $b$, en déduire $\pgcd(a,b)$ et $\ppcm(a,b)$.
+\begin{enumerate}
+    \item $a=1500$, $b=1470$.
+    \item $a=18\,135$, $b=92\,950$.
+\end{enumerate}
+\finenonce
+
+\indication
+Le pgcd et les ppcm s'obtiennent facilement une fois les entiers décomposés en facteurs premiers.
+Pour le pgcd prendre, pour chaque facteur premier, l'exposant minimum entre celui de $a$ et celui de $b$, pour le ppcm prendre le maximum.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item     
+    $a=1500 = 2^2 \times 3 \times 5^3$.
+    
+    Pour obtenir cette décomposition, on remarque que $1500$ est divisible par $2$ donc
+    $1500 = 2 \times 750$, puis $750$ est encore divisible par $2$, donc $1500 = 2^2 \times 375$, cette fois $375$ n'est pas divisible par $2$ mais par contre il est divisible par $3$, ainsi $1500 = 2^2 \times 3 \times 125$ et enfin $125=5^3$.
+    
+    On obtient de même : $\quad b = 2\times 3 \times 5 \times 7^2$.
+    
+    Pour le pgcd et le ppcm on écrit les entiers avec tous les facteurs présents dans $a$ ou $b$, quitte à mettre des exposants qui valent $0$ :
+    $$a=1500 = 2^2 \times 3^1 \times 5^3  \times 7^0$$
+    $$b = 1470 = 2^1\times 3^1 \times 5^1 \times 7^2$$
+    
+    Pour le pgcd on prend, pour chaque facteur premier, l'exposant \emph{minimum} entre celui de $a$ et celui de $b$ :
+    $$\pgcd(a,b)=2^1\times 3^1 \times 5^1 \times 7^0 = 30$$
+    Pour le ppcm on prend, pour chaque facteur premier, l'exposant \emph{maximum} entre celui de $a$ et celui de $b$ :
+    $$\ppcm(a,b)=2^2\times 3^1 \times 5^3 \times 7^2 = 73\,500$$    
+    
+    \item
+    $$a = 18\,135 = 3^2 \times 5 \times 13 \times 31 \qquad b = 92\,950 = 2 \times 5^2 \times 11 \times 13^2$$
+    
+    $$\pgcd(a,b)=2^0\times 3^0 \times 5^1 \times 11^0 \times 13^1 \times 31^0 = 5 \times 13 =65$$
+     
+    $$\ppcm(a,b)=2^1\times 3^2 \times 5^2 \times 11^1 \times 13^2 \times 31^1 = 25\,933\,050$$   
+   
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Soit $p$ un nombre premier. Montrer que pour tout entier $k$ tel que $1 \leq k \leq p-1$, alors $p$ divise $\binom{p}{k}$.
+
+\textit{On rappelle l'expression du coefficient binomial :}
+$$ \binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+\finenonce
+
+\indication
+Trouver un entier $A$ tel que $\binom{p}{k} = p! \times A$ et utiliser le lemme de Gauss.
+\finindication
+
+\correction
+Faisons d'abord la remarque suivante : si $a$ et $b$ sont deux entiers, si $p$ est un nombre premier avec $p>a$ et $p>b$ alors bien sûr $p$ ne peut pas diviser $a$, ni $b$ (car $p$ est plus grand que $a$ et $b$) mais en plus $p$ ne peut pas diviser $a \times b$. En effet par le lemme d'Euclide, si $p$ divisait $ab$ alors $p$ diviserait $a$ ou $p$ diviserait $b$.
+
+\bigskip
+
+On sait que $\binom{p}{k} = \frac{p!}{k!(p-k)!} \iff p! = \binom{p}{k} \times k! (p-k)!$. Puisque $p$ divise $p!$, $p$ divise donc $\binom{p}{k} \times k! (p-k)!$. Mais pour $1 \leq k \leq p-1$, tous les facteurs de $k!$ sont strictement inférieurs à $p$ : cela signifie que $p$ ne divise pas $k!$, et donc que $\pgcd(p,k!)=1$. D'après le lemme de Gauss, on a donc : $p$ divise $\binom{p}{k} \times (p-k)!$.\\
+Mais il en va de même avec $(p-k)!$ : pour $1 \leq k \leq p-1$, les facteurs de $(p-k)!$ sont tous strictement inférieurs à $p$. Donc $p$ ne divise pas $(p-k)!$, et $\pgcd(p,(p-k)!) = 1$. Une nouvelle application du lemme de Gauss offre donc : 
+$$ \boxed{\text{Pour } 1 \le k \le p-1,\qquad   \; p \text{ divise } \binom{p}{k}. \; }$$
+\fincorrection
+\finexercice
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Congruences}
+
+
+
+\exercice{}
+
+\enonce
+Simplifier les expressions suivantes (sans calculatrice). Par exemple "simplifier $72 \; [7]$" signifie "trouver $n$ entre $0$ et $6$ tel que $72 \equiv n \; [7]$" ; la réponse est $n=2$.
+\begin{itemize}
+    \item $45 \; [7]$,\quad $39 \; [7]$, \quad $45+39 \; [7]$, \quad $45 \times 39 \; [7]$,\quad $45^2 \; [7]$,\quad  $39^3 \; [7]$.
+    \item $1052 \; [22]$, \quad $2384 \; [22]$,\quad  $2384-1052 \; [22]$, \quad $1052^2 \times 2384 \; [22]$.
+\end{itemize} 
+\finenonce
+
+\indication
+Pour les calculs modulo $7$ on se ramène à un entier compris entre $0$ et $6$.
+Modulo $22$ on se ramène à un entier compris entre $0$ et $21$.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item 
+    \begin{itemize}
+        \item $45 = 42 + 3 = 7\times 6 +3$, ainsi $45 \equiv 3 \; [7]$.
+        \item $39 = 35 + 4 = 7\times 5 +4$, ainsi $39 \equiv 4 \; [7]$.
+        \item Pour réduire $45+39$, on ne fait pas d'abord la somme, on utilise en premier nos réductions précédentes :
+        $$45+39 \equiv 3 + 4 \equiv 7 \equiv 0 \; [7].$$
+        Ainsi, sans effort, on sait que $45+39$ est divisible par $7$.
+        \item $45 \times 39 \equiv 3 \times 4 \equiv 12 \equiv 5 \; [7]$.
+        \item $45^2 \equiv 3^2 \equiv 9 \equiv 2 \; [7]$.
+        \item $39^3 \equiv 4^3 \equiv 64 \equiv 1 \; [7]$.
+    \end{itemize} 
+    
+    \item
+    \begin{itemize}
+        \item $1052 = 22 \times 47 + 18$ donc $1052 \equiv 18 \; [22]$.
+        \item $2384 = 22 \times 108 + 8$ donc $2384 \equiv 8 \; [22]$.
+        \item $2384 -1052 \equiv  8-18 \equiv -10 \equiv 12 \; [22]$.
+        \item $1052^2 \times 2384 \equiv 18^2 \times 8 \; [22]$.
+        Or $18^2 = 324 \equiv 16 \; [22]$ donc $1052^2 \times 2384 \equiv 16 \times 8 \equiv 128 \equiv 18 \; [22]$.
+    \end{itemize} 
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+\sauteligne
+\begin{enumerate}
+    \item Calculer $2^{500}$ modulo $13$ (utiliser le petit théorème de Fermat).
+    \item Calculer $1000^{123}$ modulo $17$.  
+    \item Calculer $3^{1234}$ modulo $15$ (attention on ne peut pas appliquer le petit théorème de Fermat, étudier d'abord $3^k$ modulo $15$ pour les petites valeurs de $k$).
+\end{enumerate} 
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Le petit théorème de Fermat nous dit que $2^{12} \equiv 1 \; [13]$, il faut ensuite écrire $500 = 12 \times ? \;  + \; ?$.
+    \item Commencer par simplifier le calcul en réduisant $1000 \; [17]$.
+\end{enumerate}     
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item 
+    \begin{itemize}
+       \item $13$ est un nombre premier (et ne divise pas $2$), alors le petit théorème de Fermat nous dit que $2^{12} \equiv 1 \; [13]$. Ainsi les puissances sont périodiques de période $12$ :
+       $2^0 \equiv 1 \; [13]$,  $2^{12} \equiv 1 \; [13]$, $2^{24} \equiv 1 \; [13]$, $2^{36} \equiv 1 \; [13]$,\ldots
+       \item Il s'agit maintenant d'approcher $500$ au plus près par un multiple de $12$, on effectue donc la division euclidienne de $500$ par $12$ :
+       $$500 = 12 \times 41 + 8$$
+       Ainsi $500 = 492 +8$ où $492$ est un multiple de $12$.
+       \item On peut maintenant réduire $2^{500}$ modulo $13$ :
+       $$2^{500} = 2^{492 + 8} = 2^{492} \times 2^8  \equiv 1 \times 2^8 \; [13]$$
+       \item Il reste à calculer $2^8$ modulo $13$.
+       $2^8 = 256 \equiv 9 \; [13]$.
+       Ainsi $$2^{500} \equiv 1 \times 9 \equiv 9 \; [13].$$
+   \end{itemize}
+   
+       
+    \item 
+    \begin{itemize}
+      \item On commence par réduire $1000$ modulo $17$, comme $1000 = 17\times 58 +14$ alors $1000 \equiv 14 \; [17]$. On sait que si $a\equiv b \; [n]$ alors $a^k \equiv b^k \; [n]$ donc $1000^k \equiv 14^k \; [17]$. On va donc calculer $14^{123} \; [17]$.
+          
+      \item Le petit théorème de Fermat nous dit que $14^{16} \equiv 1 \; [17]$ car $17$ est un nombre premier. On obtient donc aussi $14^{32} \equiv 1 \; [17]$, $14^{48} \equiv 1 \; [17]$,\ldots
+      
+      \item On cherche le multiple de $16$ le plus proche en dessous de $123$, comme $123=16 \times 7+11$ alors
+      $123 = 112 + 11$ où $112$ est un multiple de $16$. Ainsi :
+      $$14^{123} = 14^{112 + 11} = 14^{112} \times 14^{11} \equiv 1 \times 14^{11} \; [17].$$
+      
+      \item Il reste à calculer $14^{11}$ modulo $17$.
+      Pour éviter de faire des calculs avec des entiers trop gros, on calcule les puissances successives de $14$ et on réduit modulo $17$ à chaque étape :
+      $$
+      \begin{array}{c}
+      14^1 \equiv 14 \; [17] \\
+      14^2 = 196 \equiv 9 \; [17] \\
+      14^3 = 14 \times 14^2 \equiv 14 \times 9 \equiv 126 \equiv 7 \; [17] \\
+      14^4 = 14 \times 14^3 \equiv 14 \times 7 \equiv 98 \equiv 13 \; [17] \\ 
+      14^5 = 14 \times 14^4 \equiv 14 \times 13 \equiv 182 \equiv 12 \; [17] \\ 
+      \cdots \\  
+      14^{11} = 14 \times 14^{10} \equiv 10 \; [17] \\
+      \end{array}$$
+      
+     \item Conclusion :   $1000^{123} \equiv 14^{123} \equiv 14^{11} \equiv 10 \; [17]$.          
+    \end{itemize}   
+
+    \item On ne peut pas appliquer le petit théorème de Fermat car $15$ n'est pas pas un nombre premier.
+    On commence donc par étudier $3^k \equiv 1 \; [15]$ pour les petites valeurs de $k$ :
+      $$
+\begin{array}{c|c|c}
+ k & 3^k  & 3^k \; [15] \\ \hline  
+ 1  &  3  &  3 \\
+ 2  &  9  &  9 \\
+ 3  &  27  &  12 \\
+ 4  &  81  &  6 \\
+ 5  &  243  &  3 \\
+ 6  &  729  &  9 \\
+ 7  &  2187  &  12 \\
+ 8  &  6561  &  6 \\
+ 9  &  19683  &  3 \\
+\end{array}$$  
+On voit apparaître une période de longueur $4$ (même si on n'obtient pas $1$ comme résultat) : par exemple si l'exposant est congru à $1$ modulo $4$ (i.e.{} $k= 1,5,9,\ldots$) :
+$$3^1 \equiv 3 \; [15] \qquad 3^5 \equiv 3 \; [15] \qquad 3^9 \equiv 3 \; [15] \qquad \ldots$$
+Si l'exposant est congru à $2$ modulo $4$ (i.e.{} $k= 2,6,10,\ldots$) :
+$$3^2 \equiv 9 \; [15] \qquad 3^6 \equiv 9 \; [15] \qquad 3^{10} \equiv 9 \; [15] \qquad \ldots$$
+
+Dans notre cas l'exposant est $k=1234$.
+On écrit alors $1234 = 4\times 308 + 2$. Ainsi $k\equiv 2 \; [4]$, donc  
+$$3^{1234} \equiv 9 \; [15].$$    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+
+\enonce
+\emph{Les deux premières questions reprennent un exercice précédent et montrent l'efficacité des congruences pour les calculs.}
+\begin{enumerate}
+    \item Soit $n=p^2$ le carré d'un entier. Déterminer les valeurs possibles de $n$ modulo $4$.
+    
+    \item Montrer que si $n$ est un entier naturel somme de deux carrés d'entiers 
+    alors $n$ modulo $4$ n'est jamais égal à $3$.
+    
+    \item Soit $n=p^2$ le carré d'un entier. Déterminer les valeurs possibles de $n$ modulo $8$.
+        
+    \item Montrer que si $n$ est un entier naturel somme de trois carrés d'entiers 
+    alors $n$ modulo $8$ n'est jamais égal à $7$.
+\end{enumerate} 
+\finenonce
+
+\indication
+Modulo $4$, $p$ est congru à $0$, $1$, $2$ ou $3$, donc $p^2$...
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=p^2$. 
+    Modulo $4$, $p$ est congru à $0$, $1$, $2$ ou $3$.
+    Calculons alors la valeur de $p^2$ modulo $4$ dans chacun de ces cas.
+    $$
+    \begin{array}{c|c}
+    p \; [4]  & p^2 \; [4] \\ 
+    \hline 
+    0 & 0 \\
+    1 & 1 \\
+    2 & 2^2 \equiv 4 \equiv 0 \\
+    3 & 3^2 \equiv 9 \equiv 1 \\
+    \end{array}$$   
+    
+    Conclusion : pour $n=p^2$ alors $n \; [4]$ est congru soit à $0$, soit à $1$ (mais ne peut pas être $2$, ni $3$).
+    
+%    \begin{itemize}
+%    \item Si $p$ est pair, alors $p=2k$ (pour un certain entier $k$) donc $n=p^2 = (2k)^2 = 4k^2$ est un multiple de $4$. Donc $n \equiv 0 \; [4]$.
+%
+%    \item Si $p$ est impair, alors $p=2k+1$ donc $n=p^2 = (2k+1)^2 = 4k^2+4k+1 = 4(k^2+k) + 1$, c'est un multiple de $4$ auquel on ajoute $1$.  Donc $n \equiv 1 \; [4]$.
+%
+%    \item Conclusion : pour $n=p^2$ alors $n \; [4]$ est congru soit à $0$, soit à $1$ (mais ne peut pas être $2$, ni $3$).   
+%    \end{itemize}  
+  
+
+
+   \item Soit $n=p^2+q^2$.
+D'après la question précédente $p^2$ et $q^2$ sont congrus à $0$ ou $1$ modulo $4$. Il y a donc $4$ cas possibles, mais dans tous les cas la somme ne peut pas faire $3$ ($0+0=0$, $0+1=1$, $1+0=1$, $1+1=2$).
+
+    \item Soit $n=p^2$. 
+Modulo $8$, $p$ est congru à l'un des entiers $0,1,\ldots,7$.
+Calculons la valeur de $p^2$ modulo $8$ dans chacun de ces cas.
+$$
+\begin{array}{c|c}
+p \; [8]  & p^2 \; [8] \\ \hline 
+0 & 0 \\
+1 & 1 \\
+2 & 4 \\
+3 & 3^2 \equiv 9 \equiv 1 \\
+4 & 4^2 \equiv 16 \equiv 0 \\
+5 & 5^2 \equiv 25 \equiv 1 \\
+6 & 6^2 \equiv 36 \equiv 0 \\
+7 & 7^2 \equiv 49 \equiv 1 \\
+\end{array}$$   
+
+Conclusion : pour $n=p^2$ alors $n \; [8]$ est congru soit à $0$, soit à $1$, soit à $4$ (mais ne peut pas être $2$, $3$, $5$, $6$, ni $7$).
+
+%  \item Si $n$ est pair alors il existe $k\in \Nn$ tel que $p=2k$. Et $p^2 = 4k^2$.
+%    Si $k$ est pair alors $k^2$ est pair et donc $p^2 = 4k^2$ est divisible par $8$, donc
+%    $p^2 \equiv 0 \; [8]$. Si $k$ est impair alors $k^2$ est impair et donc $p^2 = 4k^2$ est divisible par $4$ mais pas par $8$, donc
+%    $p^2 \equiv 4 \; [8]$. 
+%    
+%    
+%  \item Soit $p$ un nombre impair, alors il s'\'ecrit $n=2k+1$ avec $k\in \Nn$.
+%  Maintenant $p^2 = (2k+1)^2 = 4k^2+4k+1 = 4k(k+1) + 1$. Donc $n^2 \equiv 1 \; [8]$ car $k(k+1)$ est toujours un entier pair.
+  
+  \item Soit $n=p^2+q^2+r^2$. Chaque carré vaut $0$ ou $1$ ou $4$ modulo $8$. La somme de trois tels termes ne peut pas faire $7$ (toutes les autres valeurs de $0$ à $6$ sont possibles). Donc $n$ n'est pas congru à $7$ modulo $8$.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+\exercice{}
+\enonce
+\sauteligne
+\begin{enumerate}
+    \item Montrer que $p=101$ est un nombre premier.
+    \item Soit $a$ un entier avec $1 \le a < p$. Montrer que $\pgcd(a,p)=1$.
+    \item \'Ecrire le théorème de Bézout pour le pgcd précédent ; en déduire qu'il existe $u \in \Zz$ tel que $au \equiv 1 \; [p]$. \emph{Un tel $u$ s'appelle un \textbf{inverse} de $a$ modulo $p$.}
+    \item Trouver un inverse de $a=15$ modulo $p=101$.
+    \item Trouver une solution de l'équation d'inconnue $x$ (un entier) : $15x \equiv 7 \; [101]$.   
+    \item Reprendre tout l'exercice avec $p=103$.
+\end{enumerate} 
+\finenonce
+
+\indication
+Ici le théorème de Bézout s'écrit $au+pv=1$. Le $u$ est l'inverse cherché.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item $p=101$ n'est pas divisible par $k=2,3,5,7$ qui sont les diviseurs premiers possibles $\le \sqrt{101}$, donc c'est un nombre premier.
+    \item Si $d$ est un diviseur commun à $a$ et à $p$ alors $d=1$ ou $d=p$ car $p$ est un nombre premier. Mais comme $d$ doit être plus petit que $a$ (et $a < p$) alors $d<p$. Conclusion : $d=1$, ce qui prouve que $a$ et $p$ sont premiers entre eux.
+    \item Le théorème de Bézout avec $a$, $b=p$ et $d=\pgcd(a,p)=1$ donne l'existence de deux entiers $u,v$ tels que :
+    $$au+pv = 1.$$
+    Autrement dit $au - 1 = -pv$. Ce qui implique que $au \equiv 1 \; [p]$.
+    \item Pour $a=15$ et $p=101$ les coefficients de Bézout $u,v$ sont obtenus par remontée de l'algorithme d'Euclide. Après calculs on trouve :
+    $$a \times 27 + 101\times (-4) = 1.$$
+    Donc avec $u=27$ on a $au \equiv 1 \; [101]$ c'est-à-dire $15 \times 27 \equiv 1 \; [101]$. $27$ est donc un inverse de $15$ modulo $101$.
+    \item Toujours avec $a=15$, l'équation à résoudre est $ax \equiv 7 \; [101]$. On a envie de diviser par $a$ pour trouver $x$. Pour l'écrire de façon correcte, on va plutôt multiplier à gauche et droite par l'inverse de $a$ (c'est-à-dire par $u=27$), pour obtenir une équation équivalente :
+    $$(au)x \equiv 7u \; [101]$$ 
+    Mais $au \equiv 1 \; [101]$ (par construction de $u$), donc on obtient 
+    $$x \equiv 7u \; [101]$$
+    Ici $u=27$ donc $x = 7 \times 27 = 189 \equiv 88 \; [101]$.
+    On vérifie facilement qu'avec $x=88$ on a bien $15 \times 88 \equiv 7 \; [101]$. C'est aussi ce que l'on retrouve si l'on part de la relation de Bézout (trouvée à la question 4) et qu'on la multiplie par $7$.
+    
+    \item Avec $a=15$ et $p=103$ on trouve $au+pv=1$ pour $u=-48$, $v=7$.
+    Un inverse de $15$ modulo $103$ est donc $u = -48$. Si on préfère un entier positif on peut prendre $u'=55$ (qui est congru à $-48$ modulo $103$).
+    Une solution de l'équation $15x\equiv 7 \; [103]$ est donc $x=76$, car 
+    $7u = 7 \times (-48) = -336 \equiv 76 \; [103]$. 
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+Les \textbf{nombres de Fermat} $F_n$ sont les entiers définis pour $n \in \mathbb{N}$ par 
+$$ F_n = 2^{2^n} + 1 $$
+\begin{enumerate}
+\item Montrer que pour tout entier naturel $n$, on a $F_{n+1} = (F_n - 1)^2 + 1$.
+\item Démontrer que pour $n \geq 2$, l'écriture décimale des nombres de Fermat $(F_n)$ se termine par le chiffre $7$.
+\end{enumerate}
+\finenonce
+
+\indication
+On rappelle que $2^{2^n}$ signifie $2^{(2^n)}$.
+Utiliser un raisonnement par récurrence et les congruences modulo $10$.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+\item On calcule :
+$$ (F_{n}-1)^2+1 = (2^{2^n})^2 + 1 = 2^{2^n \times 2} + 1 = 2^{2^{n+1}} + 1 = F_{n+1} $$
+\item L'écriture décimale d'un entier $N$ se termine par le chiffre $7$ si et seulement si on a $N \equiv 7 \; [10]$.
+
+Démontrons donc par récurrence la proposition : "$F_n \equiv 7 \; [10]$", pour $n\ge2$.
+
+\textbf{Initialisation.} Pour $n=2$, on a :
+$$ F_2 = 2^{2^2} + 1 = 16+1 = 17 \equiv 7 \; [10] $$
+
+\textbf{Hérédité.} Supposons que pour un entier $n \geq 2$, on ait en effet $F_n \equiv 7 \; [10]$. On a alors :
+$$ F_{n+1} = (F_n - 1)^2 + 1 \equiv (7-1)^2+1 = 36 + 1 = 37 \equiv 7 \; [10] $$
+Ainsi la proposition est bien héréditaire.
+
+\textbf{Conclusion.} On a bien démontré par récurrence que tous les nombres de Fermat $F_n$, pour $n \geq 2$, sont congrus à $7$ modulo $10$ : leur écriture décimale se termine donc par le chiffre $7$.
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\end{document}
+

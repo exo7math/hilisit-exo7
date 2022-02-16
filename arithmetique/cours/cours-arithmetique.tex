@@ -1,0 +1,135 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage{exo7hilisit}
+
+
+\usepackage{cancel}
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Cours -- Arithmétique}
+
+\bigskip
+\bigskip
+
+\begin{quote}
+\center
+\emph{
+    L'arithmétique désigne la branche mathématique qui traite des opérations et des propriétés des nombres entiers. Les premières découvertes en arithmétique, qui forgent toujours la base de ce que nous connaissons aujourd'hui, proviennent des écrits du grec Euclide. Il s'intéressait notamment aux divisibilités des entiers naturels, et aux nombres premiers. L'étude des nombres premiers est encore maintenant un domaine très riche et très actif dans la recherche mathématique, puisqu'elle possède plusieurs liens merveilleux avec d'autres domaines.}
+\end{quote}
+
+\bigskip
+\bigskip
+
+
+\textbf{Sections}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{pgcd}
+    
+    Thèmes : Divisibilité et calcul de pgcd via l'algorithme d'Euclide.
+    
+    Objectifs :
+    Connaître les conditions qui définissent la division euclidienne.
+    Connaître le lien entre pgcd et ppcm.
+    Savoir poser une division d'entiers afin de calculer le quotient et le reste.
+    Savoir calculer un pgcd à l'aide de l'algorithme d'Euclide.    
+    
+    \item  \textbf{Théorème de Bézout}
+    
+    Thèmes : Le théorème de Bézout et les nombres premiers entre eux.
+    
+    Objectifs :     
+    Connaître le théorème de Bézout.
+    Comprendre ce que sont les nombres premiers entre eux.
+    Connaître le lemme de Gauss.
+    Savoir calculer les coefficients de Bézout par remontée de l'algorithme d'Euclide.  
+      
+    \item  \textbf{Nombres premiers}
+    
+    Thèmes : Les nombres premiers et la décomposition en facteurs premiers.
+    
+    Objectifs : 
+    Connaître la définition de nombre premier.
+    Savoir qu'il en existe une infinité.
+    Connaître le lemme d'Euclide.
+    Savoir calculer une décomposition en facteurs premiers.
+    Savoir en déduire des pgcd et ppcm.    
+    
+      
+    \item  \textbf{Congruences}
+    
+    Thèmes : Les calculs modulo un entier naturel $n$.
+    
+    Objectifs : 
+	Comprendre la définition de la congruence.
+    Connaître le petit théorème de Fermat.
+    Savoir faire des calculs modulo $n$.     
+\end{enumerate}
+
+
+\bigskip
+\bigskip
+
+
+
+\vfill
+
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\center
+Auteur : Barnabé Croizat de l'université de Lille.
+
+Adaptation : Arnaud Bodin et Christine Sacré.
+Relecture de Guillemette Chapuisat.
+
+  \medskip
+  
+Ce travail a été effectué en 2021-2022 dans le cadre d'un projet Hilisit porté par Unisciel.
+\end{minipage}
+
+  \medskip
+
+\raisebox{1ex}{\includegraphics[height=1.8cm]{logo-unisciel}}\qquad\qquad
+\includegraphics[height=2.2cm]{logo-ulille}
+
+  \medskip
+  
+Ce document est diffusé sous la licence \emph{Creative Commons -- BY-NC-SA -- 4.0 FR}.
+
+
+Sur le site Exo7 vous pouvez récupérer les fichiers sources.
+
+\vspace*{0cm}
+
+\end{center}
+
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\import{./}{arithmetique-part1.tex}
+\newpage
+
+\import{./}{arithmetique-part2.tex}
+\newpage
+
+\import{./}{arithmetique-part3.tex}
+\newpage
+
+\import{./}{arithmetique-part4.tex}
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,0 +1,206 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{\'Equations différentielles -- Partie 3 : $y'=ay$} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Connaître la formule de la solution d'une équation différentielle $y'=ay$.
+		\item Comprendre ce qu'est une condition initiale d'une équation différentielle.
+		\item Comprendre qu'il y a unicité d'une solution lorsqu'on impose une condition initiale.
+%        \item Savoir interpréter l'unicité en terme des courbes solutions qui ne s'intersectent pas.		
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir résoudre une équation différentielle $y'=ay$.
+		\item Savoir trouver la solution vérifiant une condition initiale donnée.
+	\end{itemize}
+}
+
+
+\setcounter{equation}{0}
+
+
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Un exemple}
+
+Une équation différentielle a en général une infinité de fonctions solutions.
+
+Considérons par exemple l'équation différentielle :
+\begin{equation}
+y'(x) = y(x)
+\label{eq:eqdiff1}
+\end{equation}
+
+Alors les solutions de (\ref{eq:eqdiff1}) sont les fonctions :
+$$y(x) = Ce^x \qquad \text{ où } C \in \Rr.$$ 
+Ainsi, chaque valeur de la constante $C$ fournit une fonction solution que l'on note $y_C$ :
+par exemple pour $C=1$, $y_1(x) = e^x$ est solution, pour $C=-2$, 
+$y_{-2}(x) = -2e^x$ est solution, pour $C=0$, $y_0(x)=0$ est solution\ldots
+
+
+Pour n'avoir qu'une seule solution, on peut imposer une condition initiale
+\begin{equation}
+\left\{\begin{array}{lr}
+y'(x) = y(x) &\qquad \text{équation différentielle}\\
+y(0) = 3    &\qquad \text{condition initiale}
+\end{array}\right.
+\label{eq:eqdiff2}
+\end{equation}
+
+Les solutions de l'équation différentielle sont de la forme $y(x)=Ce^x$,
+mais on veut $y(0)=3$. 
+Comme $y(0)=Ce^0=C$, on doit avoir $C=3$. 
+Ainsi l'unique solution du problème (\ref{eq:eqdiff2}) est la fonction 
+$y(x) = 3e^x$.
+
+\medskip
+
+\emph{Exercice.}
+Considérons l'équation différentielle avec condition initiale :
+\begin{equation}
+\left\{\begin{array}{l}
+y'(x) = y(x)\\
+y(1) = 2    
+\end{array}\right.
+\label{eq:eqdiff3}
+\end{equation}
+Trouver l'unique solution de ce problème. (Attention ce n'est pas $y(x) = 2e^x$ !)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{$\boldsymbol{y'=ay}$}
+
+Considérons l'équation différentielle $y'=ay$ où $a\in\Rr$ est une constante fixée.
+Cette équation s'appelle une \emph{équation différentielle homogène linéaire d'ordre $1$ à coefficients constants}.
+
+
+\mybox{\textbf{Théorème.} Les solutions de l'équation différentielle $y'=ay$ sont les fonctions définies par $f(x) = Ce^{ax}$ où $C\in\Rr$ est une constante.}
+
+\emph{Exemples.}
+\begin{itemize}
+  \item $y'=6y$ : ici $a=6$ donc les solutions sont les fonctions $x \mapsto Ce^{6x}$ quelle que soit la constante $C$. Il y a donc une infinité de solutions par exemple $x \mapsto 8e^{6x}$ (pour $C=8$), $x \mapsto \pi e^{6x}$ (pour $C=\pi$), $x \mapsto 0$ (pour $C=0$)\ldots
+
+  \item $2y'+4y=0$ : cette équation s'écrit aussi $y'=-2y$. Ici $a=-2$ (attention au signe !), les solutions sont les fonctions $Ce^{-2x}$ où $C$ est une constante réelle.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Condition initiale}
+
+\subsubsection*{Définition}
+Pour une équation différentielle $y'=ay$, une \textbf{condition initiale} c'est le fait d'imposer une égalité du type :
+$$y(x_0)=y_0$$
+où $x_0\in\Rr$ et $y_0\in\Rr$ sont des constantes.
+
+
+\mybox{\textbf{Théorème d'unicité.} Une équation différentielle $y'=a y$ avec condition initiale admet une unique solution.}
+
+
+\emph{Exemple.}
+$$y'(x)=2y(x) \quad\text{ et }\quad y(0)=4$$
+
+Les solutions de l'équation différentielle $y'=2y$ sont les fonctions définies par 
+$f(x) = Ce^{2x}$ où $C\in \Rr$.
+Mais nous voulons en plus que la fonction solution vérifie la condition initiale $f(0)=4$. Cela entraîne $Ce^{0} = 4$, donc $C=4$. Ainsi la seule solution au problème est la fonction $f(x) = 4 e^{2x}$.
+Pour se rassurer, c'est une bonne idée de vérifier que $f'=2f$ et $f(0)=4$.
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Courbes solutions}
+
+Une \textbf{courbe solution} d'une équation différentielle $(E)$
+est le graphe d'une solution de $(E)$.
+
+
+Pour l'équation différentielle 
+$$y'(x) = y(x)$$
+on sait que les solutions sont les $y(x) = Ce^x$, où $k\in \Rr$ est une constante. Ci-dessous sont tracés quelques graphes de ces solutions.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+  \draw[->,>=latex,thick,gray] (-6.5,0) -- (2.4,0) node[below left,black] {$x$};
+  \draw[->,>=latex,thick,gray] (0,-5) -- (0,5) node[left,black] {$y$};
+
+\begin{scope}[xscale=1]
+\foreach \k in {-3,-2.5,...,3} {
+  \draw[thick, color=myred,domain=-6:2, smooth,samples=50] plot (\x,{\k*exp(+0.33*\x)});
+}
+\end{scope}
+
+%\node[blue] at (-3,3) {Cas \  $a>0$};
+
+\draw[blue] (2.3,6)--(2.5,6)--(2.5,0.2)--(2.3,0.2);
+\draw[blue] (2.3,-6)--(2.5,-6)--(2.5,-0.2)--(2.3,-0.2);
+\node[blue, right] at (3,3) {$C>0$};
+\node[blue, right] at (3,0) {$C=0$};
+\node[blue, right] at (3,-3) {$C<0$};
+
+\end{tikzpicture}
+\end{center}
+
+Pour une équation $y'=ay$ le théorème d'unicité se reformule ainsi :
+\mybox{
+\og Par chaque point $(x_0,y_0) \in \Rr^2$
+passe une et une seule courbe solution. \fg}
+
+En particulier :
+\mybox{
+\og 
+Deux courbes solutions ne s'intersectent pas.
+\fg}
+
+
+\emph{Exemple.}
+Les solutions de l'équation différentielle
+$3y'=-y$ sont les
+$$f(x) = Ce^{-\frac13x} \quad C \in\Rr.$$
+
+Pour chaque point $(x_0,y_0) \in \Rr^2$, il existe une unique solution
+$y$ telle que $y(x_0)=y_0$. Le graphe de cette solution
+est la courbe solution passant par $(x_0,y_0)$.
+
+\begin{center}
+\begin{tikzpicture}
+
+  \draw[->,>=latex,thick,gray] (-5.5,0) -- (6.5,0) node[below,black] {$x$};
+  \draw[->,>=latex,thick,gray] (0,-4.5) -- (0,5) node[left,black] {$y$};
+\begin{scope}
+    \clip (-5,-4) rectangle (5,4);
+\begin{scope}%[xscale=1.5]
+
+\foreach \k in {-4,-3.5,...,4} {
+  \draw[thick, color=myred,domain=-5:5, smooth,samples=10] plot (\x,{\k*exp(-0.33*\x)});
+}
+\foreach \k in {4,4.5,...,20} {
+  \draw[thick, color=myred,domain=-1:5, smooth,samples=10] plot (\x,{\k*exp(-0.33*\x)});
+}
+\foreach \k in {-4,-4.5,...,-20} {
+  \draw[thick, color=myred,domain=-1:5, smooth,samples=10] plot (\x,{\k*exp(-0.33*\x)});
+}
+
+\def\k{3}
+\draw[ultra thick, color=myred,domain=-2:5, smooth,samples=10] plot (\x,{\k*exp(-0.33*\x)});
+\end{scope}
+\end{scope}
+
+\fill[blue] (1,2.15)  circle (2pt) node [below] {$(x_0,y_0)$}; 
+
+\draw (-5,-4) rectangle (5,4);
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}

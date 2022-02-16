@@ -1,0 +1,229 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Logique, ensembles et raisonnements -- Partie 1}
+
+\bigskip
+\bigskip
+
+
+
+\exercice{}
+\enonce
+Dire si les assertions suivantes sont vraies ou fausses.
+ \begin{enumerate}
+      \item "$6\times 7 = 42$"
+      \item "$8 \times 8 = 49$"
+      \item "Tout entier impair est multiple de $2$."
+      \item "Tout nombre réel non nul admet un inverse."
+      \item "Il existe une solution réelle de l'équation $x^2+x+1=0$."
+      \item "Il existe une solution réelle de l'équation $x^2-3x+1=0$." 
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+ \begin{enumerate}
+     
+    \item Vrai : "$6\times 7 = 42$"
+    
+    \item Faux : "$8 \times 8 = 49$". En revanche, l'assertion "$8 \times 8 = 64$" est vraie.
+    
+    \item Faux : "Tout entier impair est multiple de $2$." Ce qui est vrai c'est "Tout entier \textbf{pair} est multiple de $2$."
+    
+    \item Vrai : "Tout réel non nul admet un inverse." En effet, si $x \neq 0$, son inverse existe et c'est $\frac1x$.
+    
+    \item Faux : "Il existe une solution réelle de $x^2+x+1=0$." Le discriminant $\Delta = -3$ est strictement négatif. Il n'y a pas de solution réelle.
+    
+    \item Vrai : "Il existe une solution réelle de $x^2-3x+1=0$." Le discriminant $\Delta = 5$ est strictement positif. Il y a deux solutions réelles (donc il y en a au moins une !).
+    
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Dire si les assertions suivantes sont vraies ou fausses.
+Dans ces phrases $x$ désigne un nombre réel quelconque fixé  ($x \in \Rr$) et $n$ un entier naturel quelconque ($n \in \Nn$).
+
+\begin{enumerate}
+    \item "$(x > 0) \text{ ou } (x \le 0)$"    
+    \item "$(x^2 \ge 0) \text{ ou } (x^2 \le 0)$"
+    \item "($n$ est divisible par $2$) ou ($n$ est divisible par $3$)"
+    \item "non($x^4 < 0$)"
+    \item "$(x > 3) \text{ ou } \text{non}(x \ge 4)$"  
+    \item "($n$ est impair) et ($n$ est divisible par $2$)"
+    \item "($n$ est pair) ou (non($n$ est divisible par $2$))"
+    \item "$(x>0)  \text{ ou } (x<0)  \text{ ou } (x=0)$"
+    \item "$(x>0)  \text{ et } (\text{non}(x>0))$".
+\end{enumerate}
+ 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    
+    \item Vrai : "$(x > 0) \text{ ou } (x \le 0)$". En français : un réel est soit strictement positif ou bien négatif ou nul.
+    
+    \item  Vrai : "$(x^2 \ge 0) \text{ ou } (x^2 \le 0)$". Cette phrase est vraie car on a toujours $x^2 \ge 0$. Comme un côté du "ou" est vrai (et même si l'autre est faux), la phrase est vraie.
+    
+    \item Faux : "($n$ est divisible par $2$) ou ($n$ est divisible par $3$)". 
+    La phrase n'est pas vraie pour tous les entiers $n$, par exemple $n=5$, n'est ni divisible par $2$, ni divisible par $3$.
+        
+    \item Vrai : "non($x^4 < 0$)". Pour un réel quelconque $x^4 = (x^2)^2 \ge 0$, donc "$x^4 < 0$" est faux, mais alors sa négation "non($x^4 < 0$)" est vraie. Remarquez que la proposition "non($x^4 < 0$)" peut en fait s'écrire "($x^4 \geq 0$)" qui est bien vraie.
+    
+    \item Vrai : "$(x > 3) \text{ ou } \text{non}(x \ge 4)$". On peut récrire la phrase sous la forme "$(x > 3) \text{ ou } (x < 4)$" qui est vraie (quel que soit $x$).
+      
+    \item Faux : "($n$ est impair) et ($n$ est divisible par $2$)". Un entier ne peut être pair et impair en même temps.   
+    
+    \item Vrai : "($n$ est pair) ou (non($n$ est divisible par $2$))"
+    On peut récrire la phrase sous la forme "($n$ est pair) ou ($n$ est impair)" qui est vraie, car un entier est soit pair, soit impair.
+    
+    \item Vrai : "$(x>0)  \text{ ou } (x<0)  \text{ ou } (x=0)$". Un entier est soit strictement positif, soit strictement négatif, soit nul.
+    
+    \item Faux. "$(x>0)  \text{ et } (\text{non}(x>0))$". De façon générale $\mathcal{P} \text{ et } \text{non-}\mathcal{P}$ est toujours fausse : on ne peut avoir une proposition vraie et sa négation aussi !
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Dire si les assertions suivantes sont vraies ou fausses.
+\begin{enumerate}
+    \item $\forall n \in \Nn  \quad n \text{ est un nombre premier }$
+    \item $\exists n \in \Nn  \quad n \text{ est un nombre premier }$
+    \item $\forall x \in \Rr  \quad x^2+1 \ge 1$      
+    \item $\exists x \in \Rr  \quad x^2+1 \ge 1$  
+    \item $\forall x \in \Rr^*_+  \quad x > \frac 1x$         
+    \item $\exists x \in \Rr^*_+  \quad x > \frac 1x$
+    \item $\exists x \in \Rr  \quad x^2+x-1 = 0$         
+    \item $\exists x \in \Zz  \quad x^2+x-1 = 0$                 
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Faux : $\forall n \in \Nn  \quad n \text{ est un nombre premier }$. La phrase dit "Tout entier est un nombre premier" ce qui est faux, car par exemple $n=4$ n'est pas un nombre premier.
+    
+    \item  Vrai : $\exists n \in \Nn  \quad n \text{ est un nombre premier }$. La phrase dit "Il existe un entier qui est un nombre premier" ce qui est vrai, en prenant par exemple $n=5$.
+    
+    \item  Vrai :  $\forall x \in \Rr  \quad x^2+1 \ge 1$. Preuve : pour n'importe quel $x\in\Rr$, $x^2 \ge 0$, donc en ajoutant $1$ de part et d'autre : $x^2+1 \ge 1$.
+        
+    \item Vrai :  $\exists x \in \Rr  \quad x^2+1 \ge 1$. C'est vrai aussi, mais pour le prouver il suffit de dire que, par exemple, $x= 10$ convient, car pour $x=10$ on a bien $x^2+1 = 101 \ge 1$.
+      
+    \item Faux : $\forall x \in \Rr^*_+  \quad x > \frac 1x$. Un contre-exemple est $x=\frac12$, pour lequel $\frac1x = 2$.
+    
+    \item Vrai : $\exists x \in \Rr^*_+  \quad x > \frac 1x$. Il suffit de dire que, par exemple, $x= 3$ convient.
+    
+    \item Vrai : $\exists x \in \Rr  \quad x^2+x-1 = 0$. Le discriminant $\Delta = 5$ est strictement positif. Il y a deux solutions réelles (donc il y en au moins une).
+             
+    \item Faux : $\exists x \in \Zz  \quad x^2+x-1 = 0$. Les seules solutions sont $\frac{1-\sqrt5}{2}$ et $\frac{1+\sqrt5}{2}$ qui sont des réels, mais pas des entiers.
+    
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Remplacer les pointillés des propositions suivantes par le symbole le plus adapté parmi $\implies$, $\impliedby$ ou $\iff$.
+
+Dans ces phrases $x$ et $y$ désignent des nombres réels et $n$ un entier naturel.
+
+\begin{enumerate}
+    \item $x > 0  \qquad \ldots\ldots \qquad x^2 > 0$
+    \item $ -x < 0 \qquad \ldots\ldots \qquad 3x > 1$    
+    \item $x^2 = 4  \qquad \ldots\ldots \qquad (x = 2)  \text{ ou } (x = -2)$      
+    \item $x \neq y  \qquad \ldots\ldots \qquad x^2 \neq y^2$
+    \item $xy = 0  \qquad \ldots\ldots \qquad x = 0 \text{ ou } y = 0$    
+    \item $xy = 0  \qquad \ldots\ldots \qquad x = 0 \text{ et } y = 0$
+    \item $xy \neq 0  \qquad \ldots\ldots \qquad x \neq 0 \text{ ou } y \neq 0$  
+    \item $n \ge 3$ et $n$ impair  \qquad \ldots\ldots \qquad $n \ge 3$ et $n$ un nombre premier 
+    \item $n \ge 3$ et $n$ pair  \qquad \ldots\ldots \qquad $n \ge 3$ et $n$ n'est pas un nombre premier      
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item $x > 0 \implies  x^2 > 0$ (la réciproque $\impliedby$ est fausse, prenez par exemple $x=-2$).
+    
+    \item $ -x < 0 \impliedby 3x > 1  $  (l'implication directe $\implies$ est fausse, prenez par exemple $x=\frac1{10}$).  
+    
+    \item $x^2 = 4  \iff (x = 2)  \text{ ou } (x = -2)$    
+      
+    \item $x \neq y \impliedby  x^2 \neq y^2$ (l'implication directe $\implies$ est fausse, prenez par exemple $x=2$, $y=-2$).
+    
+    \item $xy = 0 \iff x = 0 \text{ ou } y = 0$
+        
+    \item $xy = 0 \impliedby  x = 0 \text{ et } y = 0$
+    
+    \item $xy \neq 0 \implies x \neq 0 \text{ ou } y \neq 0$  \quad : il s'agit de la contraposée de l'implication précédente !
+    
+    \item $n \ge 3$ et $n$ impair  $\impliedby$   $n \ge 3$ et $n$ est un nombre premier (l'implication directe est fausse pour $n=9$ par exemple).
+    
+    \item $n \ge 3$ et $n$ pair $\implies$  $n \ge 3$ et $n$ n'est pas un nombre premier \quad : c'est la contraposée de l'implication précédente ; $n=9$ convient donc encore comme contre-exemple pour vérifier que l'implication réciproque n'est pas vraie.     
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Écrire la contraposée de chacune des propositions suivantes. 
+Dans ces phrases, $x$ désigne un réel et $n$ un entier naturel quelconque.
+(On ne demande pas de dire si les phrases sont vraies ou fausses.)
+\begin{enumerate}
+    \item Il pleut $\implies$ Je prends mon parapluie
+    \item $x^2 \neq 0 \implies x \neq 0$ 
+    \item $7x-1 > 20 \implies x > 3$ 
+    \item $n^2$ est pair $\implies$ $n$ est pair 
+    \item Si un triangle est rectangle alors le carré de l'hypoténuse est égal à la somme des carrés des côtés opposés.
+\end{enumerate} 
+\finenonce
+
+\indication
+La contraposition de "$\mathcal{P} \implies \mathcal{Q}$" est
+"$\text{non}(\mathcal{Q}) \implies \text{non}(\mathcal{P})$".
+\finindication
+
+\correction
+La contraposition de "$\mathcal{P} \implies \mathcal{Q}$" est
+"$\text{non}(\mathcal{Q}) \implies \text{non}(\mathcal{P})$".
+Les contrapositions sont :
+\begin{enumerate}
+    \item Je ne prends pas mon parapluie $\implies$ Il ne pleut pas
+    \item $x = 0\implies x^2 = 0$ 
+    \item $x \le 3 \implies 7x-1 \le 20$ 
+    \item $n$ est impair $\implies$ $n^2$ est impair
+    \item Si le carré de l'hypoténuse n'est pas égal à la somme des carrés des côtés opposés alors le triangle n'est pas rectangle.
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+\end{document}

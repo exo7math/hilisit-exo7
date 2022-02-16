@@ -1,0 +1,195 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+    
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Arithmétique -- Partie 1 : pgcd}
+
+\bigskip
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{pgcd}
+
+\exercice{}
+\enonce
+\sauteligne
+ \begin{enumerate}
+  \item Chercher le plus petit entier positif divisible par $11$ et dont le reste de la division par $13$ est $1$.
+  
+  \item Chercher le plus petit entier positif dont le reste de la division par $8$ est $5$ et le reste de la division par $9$ est $6$.
+\end{enumerate} 
+\finenonce
+
+\indication
+Commencer par écrire tous les multiples de $11$ et effectuer ensuite la division euclidienne par $13$.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+  \item 
+Les entiers divisibles par $11$ sont les multiples de $11$ : $0$, $11$, $22$, \ldots{} Ils sont de la forme $11k$ pour un certain entier $k$.
+
+$$\begin{array}{c|c|c}
+k & 11 k & \text{reste par $13$} \\ \hline
+1  &  11  &  11 \\
+2  &  22  &  9 \\
+3  &  33  &  7 \\
+4  &  44  &  5 \\
+5  &  55  &  3 \\
+6  &  66  &  1 \\
+\end{array}$$
+
+On note sur la dernière colonne que le reste de $11k$ divisé par $13$ diminue ici de deux en deux et pour $k=6$ on obtiendra le reste $1$. Ainsi le nombre cherché est $n=66$ : c'est un multiple de $11$ et le reste de la division par $13$ est bien $1$ car $66 = 13 \times 5 +1$.
+
+  
+  \item Les entiers dont le reste de la division par $8$ est $5$ sont de la forme $8k+5$ pour un certain entier $k$. Reprenons la même méthode, on calcule tous les entiers de la forme $8k+5$ et le reste de division par $9$ :
+$$\begin{array}{c|c|c}
+k & 8 k + 5 & \text{reste par $9$} \\ \hline
+0  &  5  &  5 \\
+1  &  13  &  4 \\
+2  &  21  &  3 \\
+3  &  29  &  2 \\
+4  &  37  &  1 \\
+5  &  45  &  0 \\
+6  &  53  &  8 \\
+7  &  61  &  7 \\
+8  &  69  &  6 \\
+\end{array}$$  
+ On note sur la dernière colonne que le reste "diminue de $1$" à chaque ligne et pour  $k=8$ on obtiendra le reste $6$. Ainsi le nombre cherché est $n=8\times8+5=69$ qui s'écrit aussi $69=6\times9+6$. 
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=p^2$ le carré d'un entier. Quel peut être le reste de la division de $n$ par $4$ selon que $p$ est pair ou impair ?
+    \item Montrer que si $n$ est un entier naturel somme de deux carrés d'entiers 
+    alors le reste de la division de $n$ par $4$ n'est jamais égal à $3$.
+\end{enumerate}
+
+
+\finenonce 
+
+\indication
+Si $p$ est pair, alors $p=2k$ donc $p^2 = \ldots${}
+Si $p$ est impair, alors $p=2k+1$\ldots
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=p^2$. 
+    \begin{itemize}
+      \item Si $p$ est pair, alors $p=2k$ (pour un certain entier $k$) donc $n=p^2 = (2k)^2 = 4k^2$ est un multiple de $4$. Dans ce cas le reste de la division de $n$ par $4$ est $0$.
+    
+      \item Si $p$ est impair, alors $p=2k+1$ donc $n=p^2 = (2k+1)^2 = 4k^2+4k+1 = 4(k^2+k) + 1$, c'est l'écriture de la division euclidienne de $n$ par $4$. Donc le reste de la division de $n$ par $4$ est $1$.
+    
+      \item Conclusion : pour $n=p^2$ alors le reste de la division de $n$ par $4$ est soit $0$, soit $1$ (mais ne peut pas être $2$, ni $3$).
+    \end{itemize}
+    
+    \item Soit $n=p^2+q^2$.
+    On discute selon que $p$ et $q$ sont pairs ou impairs. Il y a donc $4$ cas possibles.
+    \begin{itemize}
+         \item Si $p$ est pair et $q$ est pair. Alors par la question précédente le reste de la division de $p^2$ par $4$ est $0$, de même que celui de la division de $q^2$ par $4$. Ainsi le reste de la division de $n=p^2+q^2$ est $0+0$, il vaut donc $0$.
+         
+         \item Si $p$ est pair et $q$ est impair, alors le reste de la division de $n=p^2+q^2$ est $0+1$, il vaut donc $1$.
+           
+         \item Si $p$ est impair et $q$ est pair, alors le reste de la division de $n=p^2+q^2$ est $1+0$, il vaut donc $1$.       
+         
+         \item Si $p$ est impair et $q$ est impair, alors le reste de la division de $n=p^2+q^2$ est $1+1$, il vaut donc $2$.  
+   \end{itemize}   
+
+    Dans tous les cas le reste de $n$ divisé par $4$ ne peut pas être $3$.
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Déterminer $\pgcd(254, 26)$, $\pgcd(654, 115)$ à l'aide de l'algorithme d'Euclide.
+\finenonce
+
+\indication
+Calculer une succession de divisions euclidiennes.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item   
+    Calculons $\pgcd(254,26)$.
+    $$
+    \begin{array}{rclclcl}
+    254 & = & 26 & \times & 9 & + & 20 \\
+    26 & = & 20  & \times & 1 & + & 6 \\
+    20  & = & 6  & \times & 3 & + & \boxed{2} \\
+    6  & = & 2  & \times & 3 & + & 0 \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(254,26) = 2$.
+    
+    
+    \item 
+    Calculons $\pgcd(654,115)$.
+$$
+\begin{array}{rclclcl}
+654 & = & 115 & \times & 5 & + & 79 \\
+115 & = & 79  & \times & 1 & + & 36 \\
+79 & = & 36  & \times & 2 & + & 7 \\
+36 & = & 7  & \times & 5 & + & \boxed{1}  \\
+7  & = & 1  & \times & 7 & + & 0 \\
+\end{array}
+$$
+Ainsi $\pgcd(654,115) = 1$.    
+    
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Déterminer $\ppcm(255, 204)$.
+\finenonce
+
+\indication
+Utiliser le lien entre $\pgcd$ et $\ppcm$...
+\finindication
+
+\correction
+\sauteligne
+On va utiliser la relation
+$$ 255 \times 204 = \pgcd(255,204) \times \ppcm(255,204) $$ 
+    Calculons donc $\pgcd(255,204)$.
+    $$
+    \begin{array}{rclclcl}
+    255 & = & 204 & \times & 1 & + & \boxed{51} \\
+    204 & = & 51  & \times & 4 & + & 0 \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(255,204) = 51$. On en déduit donc :
+    $$ \ppcm(255,204) = \frac{255 \times 204}{\pgcd(255,204)} = \frac{255 \times 204}{51} = \boxed{ \; 1020 \;} $$
+\fincorrection
+\finexercice
+
+
+
+\end{document}

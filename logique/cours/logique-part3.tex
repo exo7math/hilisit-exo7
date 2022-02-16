@@ -1,0 +1,166 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Logique et raisonnements -- Partie 3 : Raisonnements} 
+
+\encadre{
+
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Démonstration au cas par cas.
+        \item Raisonnement par l'absurde.
+        \item Preuve par contraposition.
+        \item Récurrence.
+	\end{itemize}
+}
+
+\bigskip
+
+Pour démontrer de manière rigoureuse si une proposition est vraie ou non on peut utiliser plusieurs types de raisonnement.
+
+%-----------------------------------------
+\subsection*{Le raisonnement par disjonction (cas par cas)}
+
+Pour démontrer qu'une proposition est vraie, on peut procéder au cas par cas, et en prouvant pour chacun de ces cas qu'elle est vraie. Par exemple on peut démontrer une proposition concernant des nombres entiers en considérant d'une part les entiers pairs, puis d'autre part les entiers impairs.
+
+\bigskip
+
+\emph{Exemple.}
+Pour tout entier $n\in\Zz$, montrons que $\frac{n(n+1)}{2} \in \Zz$. (Noter qu'à priori $\frac{n(n+1)}{2}$ est une fraction : ce n'est pas évident qu'elle sera égale à un entier.)
+
+Procédons en distinguant le cas $n$ pair du cas $n$ impair :
+    \begin{itemize}
+        \item Si $n$ est pair, $n=2k$ pour un certain $k \in \Zz$. On a alors $n+1=2k+1$. Et donc :
+        $$\frac{n(n+1)}{2}=\frac{2k(2k+1)}{2}=k(2k+1) \; \in \Zz.$$
+        \item Si $n$ est impair, $n=2k+1$ pour un certain $k \in \Zz$. On a alors $n+1=2k+2$. Et donc :
+        $$\frac{n(n+1)}{2}=\frac{(2k+1)(2k+2)}{2}=(2k+1)(k+1) \; \in \Zz.$$
+    \end{itemize}
+Cela achève bien de montrer que, pour tout $n \in \Zz$, on a bien $\frac{n(n+1)}{2} \in \Zz$.
+
+%-----------------------------------------
+\subsection*{Le raisonnement par l'absurde}
+
+Ce type de raisonnement est très fréquent en mathématiques, et il en est un des plus anciens procédés. En effet, c'est en utilisant un raisonnement par l'absurde qu'Euclide a démontré il y a environ $2 \, 300$ ans qu'il y avait une infinité de nombres premiers !
+
+L'idée d'un raisonnement par l'absurde pour démontrer qu'un énoncé est vrai, c'est de supposer que cet énoncé est faux et de montrer que cela aboutit à une contradiction, une absurdité. On en conclut alors que le principe de départ (avoir supposé l'énoncé faux) était erroné, et que par conséquent l'énoncé est vrai.
+
+
+
+\bigskip
+
+\emph{Exemple.}
+Montrons, en utilisant un raisonnement par l'absurde, la proposition : "si $n \in \Nn^\star$, alors $\sqrt{n^2+1}$ n'est pas un entier".
+
+
+On commence donc par supposer que la proposition à démontrer est fausse, c'est-à-dire (en prenant sa négation) :  il existe $n \in \Nn^\star$ tel que $\sqrt{n^2+1}$ est un entier. Notons $k$ cet entier : $k := \sqrt{n^2+1} \in \Nn$. 
+On a alors :
+$$k^2 = n^2+1  \quad (\text{donc notamment }k>n)$$
+Ainsi :
+$$1 = k^2-n^2=(k-n)(k+n)$$
+Les nombres $(k-n)$ et $(k+n)$ sont deux entiers positifs qui divisent le nombre $1$ : ils ne peuvent être tous deux qu'égaux à $1$ :
+  $$\begin{cases}
+    k-n  &=1 \\
+    k+n &=1
+  \end{cases}$$
+En sommant ces deux équations, on trouve $2k=2$ donc $k=1$, et par conséquent $n=0$. Voilà une contradiction, puisque l'énoncé de départ supposait $n \in \Nn^\star$ !
+On vient donc de montrer par l'absurde que $n \in \Nn^\star \implies \sqrt{n^2+1} \notin \Nn$.
+    
+    
+%-----------------------------------------
+\subsection*{Le raisonnement par contraposition}
+
+Pour démontrer qu'une implication $\mathcal{P} \implies \mathcal{Q}$ est vraie, il est équivalent de démontrer que sa contraposée non-$\mathcal{Q} \implies $non-$\mathcal{P}$ est vraie. Dans certaines situations, il peut en effet se révéler plus simple de raisonner grâce à la contraposée plutôt qu'avec l'implication de départ.
+
+\bigskip
+
+\emph{Exemple.}
+Soit $n \in \Nn$. Montrons : "$n^2$ est pair $\implies n$ est pair".
+
+Nous allons prouver la contraposée : "$n$ est non-pair $\implies n^2$ est non-pair".
+Bien sûr dire "non-pair" c'est exactement dire "impair".
+
+On suppose donc que $n$ est impair. Alors, $n=2k+1$ pour un certain $k\in\Nn$.
+Calculons $n^2$ :
+$$n^2 = (2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k) + 1$$
+Ainsi $n^2$ est un entier de la forme $2\ell+1$ (avec $\ell = 2k^2+2k\in\Nn$) donc c'est un entier impair.
+
+Conclusion : on a prouvé "$n$ est impair $\implies n^2$ est impair" ce qui est équivalent à 
+ "$n^2$ est pair $\implies n$ est pair".
+ 
+
+\bigskip
+
+Dans la plupart des situations on peut remplacer une démonstration par l'absurde, par une démonstration par contraposition (et inversement). L'important étant de bien préciser votre choix et de s'appliquer sur la rédaction.
+ 
+
+
+%-----------------------------------------
+\subsection*{Le raisonnement par récurrence}
+
+
+Le principe de récurrence c'est comme un escalier. Si on est sur la première marche (initialisation) et que l'on sait passer d'une marche à la suivante (hérédité), alors on peut grimper jusqu'à l'infini (conclusion).
+
+
+Soit $\mathcal{P}(n)$ une proposition dépendant d'un entier naturel $n \in \Nn$. On souhaite démontrer que cette proposition est vraie pour tous les entiers naturels, c'est-à-dire : "$\forall n \in \Nn \quad \mathcal{P}(n)$".
+
+Voici les trois étapes d'une preuve par récurrence :
+\begin{itemize}
+    \item \textbf{Initialisation.}
+    On montre que \textbf{$\boldsymbol{\mathcal{P}(0)}$ est vraie}. 
+    
+    \item \textbf{Hérédité.}    
+    On fixe $n\ge0$. \textbf{On suppose} \boldmath $\mathcal{P}(n)$ \textbf{est vraie} et \textbf{on prouve} $\mathcal{P}(n+1)$ \unboldmath \textbf{est vraie.}
+    
+    \item \textbf{Conclusion.} 
+    Alors la propriété $\mathcal{P}(n)$ est vraie pour tout $n \in \Nn$.
+\end{itemize}    
+ 
+\emph{Remarques.}   
+\begin{itemize}
+    \item Si l'on souhaite montrer qu'une proposition $\mathcal{P}(n)$ est vraie pour tout $n \geq n_0$, alors on effectuera l'étape d'initialisation au rang $n_0$ en établissant que $\mathcal{P}(n_0)$ est vraie.
+    
+    \item Il faut être attentif à bien rédiger une preuve par récurrence et ne pas prendre de liberté avec la rédaction ! On s'attend à bien voir en évidence et dans l'ordre les éléments :
+    \begin{itemize} 
+            \item[0.] "\emph{Prouvons par récurrence que ...}"
+            \item[1.] "\emph{Initialisation. Pour $n=0$, ...}"
+            \item[2.] "\emph{Hérédité : Fixons $n\ge0$. Supposons qu'au rang $n$ on ait ...}"
+            \item[3.] "\emph{Conclusion : On a bien montré par récurrence que pour tout $n \ge 0$, on a ...}"
+        \end{itemize}
+\end{itemize}
+
+
+
+\emph{Exemple.}
+Soit $n\in\Nn^*$. Montrons par récurrence que la propriété suivante est vraie : 
+$$\mathcal{P}(n) \qquad 1+2+\cdots+n =\frac{n(n+1)}{2}$$
+\begin{itemize}
+    \item \textbf{Initialisation.} 
+    Pour $n=1$, la proposition $\mathcal{P}(1)$ est vraie car  $1 = \frac{1 \times 2}{2}$.
+    
+    \item \textbf{Hérédité.}
+    Fixons $n\ge1$.
+    Supposons que pour ce rang $n$, $\mathcal{P}(n)$ soit vraie, c'est-à-dire qu'on a égalité 
+    $1+2+\cdots+n=\frac{n(n+1)}{2}$.
+    
+    On veut montrer que $\mathcal{P}(n+1)$ aussi est vraie.
+    On calcule alors :
+    $$1+2+\cdots+n + (n+1) = \underbrace{\qquad 1 + 2 + \cdots + n \qquad }_{= \frac{n(n+1)}{2} \text{par hypothèse de réc. au rang $n$}} + \; (n+1) $$ 
+    $$ = \frac{n(n+1)}{2} + (n+1)= \frac{n(n+1) + 2(n+1)}{2}=\frac{(n+1)(n+2)}{2}$$
+    Cela correspond bien à la propriété voulue au rang $n+1$, à savoir : $1+2+\cdots+n + (n+1) =\frac{(n+1)(n+2)}{2}$. La propriété est donc héréditaire.
+    
+    \item \textbf{Conclusion.} Par le principe de récurrence, quel que soit $n \ge 1$, on a $1+2+\cdots+n=\frac{n(n+1)}{2}$.
+\end{itemize}
+
+
+
+\end{document}
+
+

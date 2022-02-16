@@ -1,0 +1,134 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{\'Equations différentielles -- Partie 3 : $y'=ay$}
+
+\bigskip
+\bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{$y'=ay$}
+
+\exercice{}
+\enonce
+Résoudre les équations différentielles suivantes, c'est-à-dire trouver toutes les fonctions solutions.
+\begin{enumerate}
+  \item $y'=3y$
+  \item $y'+2y=0$
+  \item $4y'-5y=0$
+\end{enumerate} 
+\finenonce
+
+\indication
+Les solutions de $y'=ay$ sont les fonctions $y(x)=Ce^{ax}$ où $C$ est une constante.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+  \item $y'=3y$ : les solutions sont $y(x)=Ce^{3x}$ où $C$ est une constante.
+  \item $y'+2y$ équivaut à $y'=-2y$ : les solutions sont $y(x)=Ce^{-2x}$ où $C$ est une constante.
+  \item $4y'-5y=0$ équivaut à $y'=\frac54y$  : les solutions sont $y(x)=Ce^{\frac54x}$ où $C$ est une constante.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+\exercice{}
+\enonce
+Trouver la solution des équations différentielles suivantes vérifiant la condition initiale donnée.
+\begin{enumerate}
+  \item $y'=-y$ avec $y(0)=2$
+  \item $y'=3y$ avec $y(0)=-1$
+  \item $2y'=y$ avec $y(2)=3$
+\end{enumerate} 
+\finenonce
+
+\indication
+Les solutions de $y'=ay$ sont les $y(x)=Ce^{ax}$ où $C$ est une constante. 
+Mais ici, il faut en plus déterminer la constante $C$ afin que $y(x_0)=y_0$ ($x_0$ et $y_0$ correspondant à la condition initiale imposée).
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+  \item $y'=-y$ : les solutions sont $y(x)=Ce^{-x}$ où $C$ est une constante.
+  On veut en plus $y(0)=2$, donc $Ce^{-0}=2$, comme $e^0=1$ alors $C=2$. L'unique solution cherchée est $y(x)=2e^{-x}$.
+
+  \item $y'=3y$ : les solutions sont $y(x)=Ce^{3x}$ où $C$ est une constante.
+  On veut en plus $y(0)=-1$, donc $Ce^{3\cdot 0}=-1$, donc $C=-1$. L'unique solution cherchée est $y(x)=-e^{3x}$.
+
+  \item $2y'=y$ : les solutions sont $y(x)=Ce^{\frac12x}$ où $C$ est une constante.
+  On veut en plus $y(2)=3$, donc $Ce^{\frac12 \cdot 2}=3$, donc $C e^1=3$ d'où $C = \frac{3}{e}$. L'unique solution cherchée est $y(x)=\frac{3}{e}e^{\frac12x}$ que l'on peut écrire aussi $y(x)=3e^{\frac12x-1}$.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+Dire si les affirmations suivantes sont vraies ou fausses. Justifier votre réponse par un résultat du cours ou un contre-exemple.
+ \begin{enumerate}
+  \item \og{}Les solutions de $y'=2y$ sont toutes des fonctions croissantes.\fg{}
+  \item \og{}L'équation différentielle $y'=-y$ admet une seule solution constante.\fg{}
+  \item \og{}Il existe une unique solution à l'équation différentielle $y'=7y$ qui vérifie $y(0)>0$.\fg{}
+  \item \og{}La solution de l'équation différentielle $y'=-2y$ qui vérifie $y(0)=-1$ tend vers $-\infty$ en $+\infty$.\fg{}
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+ \begin{enumerate}
+  \item Faux. Les solutions de $y'=2y$ sont les $y(x)=Ce^{2x}$ où $C$ est une constante réelle. Par exemple pour $C=-1$, la solution $y(x)=-e^{2x}$ est décroissante.
+  \item Vrai. La seule solution constante est $y(x)=0$ (obtenue via l'expression générale $y(x) = C e^{-x}$ pour $C=0$).
+  \item Faux. Il existe une solution pour chaque valeur de $C=y(0)$. Par exemple pour $C=1$, $y(x)=e^{7x}$ est solution et pour $C=2$, $y(x)=2e^{7x}$ est aussi solution.
+  \item Faux. La solution cherchée est $y(x)=-e^{-2x}$ qui tend vers $0$ lorsque $x$ tend vers $+\infty$.
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce
+\`A la mort d'un être vivant, le nombre $N(t)$ de noyaux radioactifs de carbone 14 (en milliards) décroît selon l'équation différentielle
+$$N'(t) = -k N(t)$$
+où $k>0$ est une constante.
+
+On cherche à dater un os d'animal trouvé dans une grotte.
+
+On prend pour temps d'origine $t=0$, la date de mort de l'animal. L'unité de temps est l'année. On sait que la \og{}demi-vie\fg{} du carbone 14 est 5500 ans, cela signifie qu'à chaque période de 5500 années, la moitié des noyaux se sont désintégrés.
+
+On sait que le nombre de noyaux lors du vivant de l'animal était $N_0=16$ (ce nombre reste constant pour tous les animaux  vivants et commence à décroître à leur mort). On mesure $N_1 = 0,20$ le nombre de noyaux dans l'os au temps présent.
+\begin{enumerate}
+  \item Résoudre l'équation différentielle en fonction de $N_0$ et de $k$.
+  \item La période de demi-vie donne la relation $N(5500)=\frac{N_0}{2}$. Calculer alors la valeur de la constante $k$.
+  \item Combien d'années auparavant cet animal a-t-il vécu ?
+\end{enumerate} 
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+  \item La solution de $N'(t) = -k N(t)$ est $N(t) = Ce^{-kt}$, or $N(0)=N_0=C$ donc la solution est $N(t) = N_0e^{-kt}$ autrement dit $N(t) = 16e^{-kt}$.
+
+  \item $N(5500)=\frac{16}{2}=8$, donc $16e^{-k \cdot 5500}=8$. Cela donne $e^{-k \cdot 5500} = \frac12$. On compose par le logarithme de chaque côté : 
+$\ln\big( e^{-k \cdot 5500} \big) = \ln(\frac12)$, donc $-k \cdot 5500 = -\ln(2)$. Conclusion : $k = \frac{\ln(2)}{5500} \simeq 0,000126$ et la solution est $N(t) \simeq 16 e^{-0,000126 \cdot t}$.
+
+  \item Notons $\tau$ le temps écoulé depuis la mort de l'animal. Alors on sait que $N(\tau)=N_1$, donc $ 16 e^{-0,000126 \cdot \tau} = 0,2$. Cela donne
+  $e^{-0,000126 \cdot \tau} = 0,0125$ ; donc en composant par le logarithme 
+  $-0,000126 \cdot \tau = \ln(0,0125)$ ainsi $\tau \simeq 34777$. On peut donc dire que l'animal a vécu il y a environ 35 000 années. 
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+    
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Arithmétique -- Partie 2 : Théorème de Bézout}
+
+\bigskip
+\bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Théorème de Bézout}
+
+
+\exercice{}
+\enonce
+Soit $a=84$ et $b=75$. Calculer $d=\pgcd(a,b)$ à l'aide de l'algorithme d'Euclide, puis déterminer des coefficients de Bézout $u,v \in \Zz$ tels que $au+bv=d$.
+
+Même exercice avec $a=624$ et $b=108$.
+\finenonce
+
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Nous allons montrer que \og{}Deux entiers consécutifs sont toujours premiers entre eux.\fg{}
+\begin{enumerate}
+    \item \emph{Première méthode.} On considère deux entiers consécutifs notés $n$ et $n+1$. Montrer que si $d$ divise $n$ et $n+1$ alors nécessairement $d=1$. 
+    
+    \item \emph{Seconde méthode.} Soit $a=n$ et $b=n+1$. Trouver $u,v \in \Zz$ (très simples) tels que $au+bv=1$. Conclure.
+\end{enumerate} 
+\finenonce
+
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Soit $\alpha \in \Zz$ un entier fixé que l'on cherchera à déterminer par la suite. Pour $k \in \Zz$, on pose : $N_1(k) = 7k+11$ et $N_2(k) = 2k + \alpha$.
+\begin{enumerate}
+    \item Déterminer deux entiers $u,v$ tels que le nombre $u N_1(k) + v N_2(k)$ ne dépende pas de l'entier $k$.
+    
+    \item En déduire une valeur de $\alpha$ pour obtenir $\pgcd(N_1(k) , N_2(k)) = 1$ pour tout entier $k$.
+    
+    \item Application : en déduire $\pgcd(95,27)$ d'une part, et $\ppcm(361,103)$ d'autre part.
+\end{enumerate}
+\finenonce
+
+
+\finexercice
+
+\end{document}
+

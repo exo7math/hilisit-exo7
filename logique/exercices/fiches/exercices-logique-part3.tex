@@ -1,0 +1,88 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Logique, ensembles et raisonnements -- Partie 3}
+
+\bigskip
+\bigskip
+
+
+
+\exercice{}
+\enonce[Preuve au cas par cas]
+\sauteligne
+\begin{enumerate}
+    \item Montrer, en utilisant une disjonction de cas, que pour tout entier $n$, le produit $n(n+1)(2n+1)$ est divisible par $6$.
+    
+    \item Montrer que tout nombre premier supérieur à $5$ s'écrit soit sous la forme $6k+1$, soit sous la forme $6k-1$ ($k \in \Nn$).
+\end{enumerate}
+\finenonce
+
+\finexercice
+
+
+\exercice{}
+\enonce[Raisonnement par l'absurde]
+\sauteligne
+\begin{enumerate}
+    \item Soient $n, a, b$ trois entiers naturels tels que $n=ab$. Montrer que $a$ ou $b$ est inférieur ou égal à $\sqrt{n}$.
+    
+    \item Soit $a \in \Rr^+$ un réel positif. Montrer :
+    \center{Si "$\forall \epsilon>0 \ \ a \leq \epsilon$" alors $a=0$.}
+\end{enumerate} 
+\finenonce
+
+\finexercice
+
+
+
+\exercice{}
+\enonce[Raisonnement par contraposition]
+\sauteligne
+\begin{enumerate}
+    \item Soit $n \in \Nn^\star$ un entier naturel non nul. Montrer par contraposition :\\
+    \centerline{$n^2-1$ n'est pas divisible par $8$ \quad $\implies \quad n$ est pair}
+    
+    \item Soient $x,y \in \Rr$ deux nombres réels. Montrer par contraposition :\\
+    \centerline{$x\neq y \quad  \implies \quad (x+1)(y-1)\neq (x-1)(y+1)$}
+\end{enumerate}
+\finenonce
+
+\finexercice
+
+
+
+\exercice{}
+\enonce[Preuve par récurrence]
+\sauteligne
+\begin{enumerate}
+    \item Soit $n \in \Nn^\star$. Démontrer par récurrence l'inégalité $2^n > n$.
+    
+    \item Montrer que l'on a, pour tout entier naturel $n \ge 1$ :
+    $$ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $$
+    
+    \item On définit par récurrence la suite $(u_n)_{n \in \Nn}$ comme ceci :
+    $$\left\{\begin{array}{l}
+    u_0 = 0  \\
+    \text{et } u_{n+1} = 2 u_n + 1 \  \text{ pour } n \ge 0.
+    \end{array}\right.
+    $$
+    \begin{enumerate}
+        \item Calculer les premiers termes de la suite $(u_n)$, et émettre une conjecture quant à l'expression de son terme général.
+        \item Montrer par récurrence que $u_n = 2^n - 1$.
+    \end{enumerate}
+\end{enumerate}
+\finenonce
+
+\finexercice
+
+
+
+
+
+\end{document}

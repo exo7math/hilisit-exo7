@@ -1,0 +1,151 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{\'Equations différentielles -- Partie 4 : $\boldsymbol{y'=ay+b}$ et $\boldsymbol{y'=ay+f}$} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Connaître le vocabulaire : second membre, équation homogène, solution particulière.
+		\item Comprendre la structure d'une solution générale : "solutions de l'équation homogène + solution particulière".
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir trouver une solution particulière à l'aide d'indications.
+		\item Savoir trouver toutes les solutions à partir d'une solution particulière et des solutions de l'équation homogène.
+	\end{itemize}
+}
+
+
+\setcounter{equation}{0}
+
+Nous allons maintenant résoudre des équations différentielles un peu plus compliquées du type $y'=ay + b$ (où $a$ et $b$ sont des constantes) et plus généralement du type $y'=ay + f$ où $a$ est une constante mais où $f$ est une fonction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Vocabulaire}
+
+Considérons l'équation différentielle 
+\begin{equation}
+y'=ay + b
+\tag{$E$}
+\end{equation}
+où $a,b \in \Rr$,  ou bien plus généralement
+\begin{equation}
+y'=ay + f
+\tag{$E$}
+\end{equation}
+où $a \in \Rr$ et $x \mapsto f(x)$ est une fonction.
+
+
+\emph{Vocabulaire.}
+\begin{itemize}
+  \item $b$ ou $f(x)$ s'appelle le \textbf{second membre} de l'équation $(E)$ (cette terminologie se justifie car l'équation peut aussi s'écrire $y'-ay=b$ ou $y'-ay=f$ en mettant d'un côté tous les termes en $y$).
+
+  \item Une \textbf{solution particulière} c'est n'importe quelle fonction $y_p(x)$ solution de l'équation originelle $(E)$.
+
+  \item L'\textbf{équation homogène} associée à $(E)$ est 
+\begin{equation}
+y'=ay
+\tag{$E_h$}
+\end{equation}
+que l'on peut aussi écrire $y'-ay=0$. C'est l'équation de départ sans son second membre. On note $y_h(x)$ les solutions de l'équation homogène.
+\end{itemize}
+
+
+\emph{Exemple 1.}
+Soit l'équation $(E)$ : $y' = 2y + 7$.
+\begin{itemize}
+  \item L'équation homogène est $(E_h)$ : $y'=2y$.
+  \item Le second membre est $b=7$.
+\end{itemize}
+
+\emph{Exemple 2.}
+Soit l'équation $(E)$ : $3y' +7y = 2\cos(x)$.
+\begin{itemize}
+  \item L'équation homogène est $(E_h)$ : $3y'+7y=0$, que l'on peut aussi écrire $y' = -\frac73 y$.
+  \item Le second membre est $f(x)=2\cos(x)$.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Structure des solutions}
+
+Reprenons une équation différentielle avec second membre
+\begin{equation}
+y'=ay + b \qquad \text{ ou } \qquad y'=ay +f
+\tag{$E$}
+\end{equation}
+
+
+On sait résoudre l'équation homogène associée $(E_h)$ : $y'=ay$, les solutions sont les fonctions $y_h(x) = Ce^{ax}$ où $C\in\Rr$.
+
+Imaginons que l'on connaisse en plus une solution particulière $y_p(x)$ de l'équation originale $(E)$.
+
+
+\mybox{\textbf{Solutions d'une équation différentielle avec second membre.} \\
+Les solutions de $(E)$ sont les fonctions 
+$y(x) = y_h(x) + y_p(x)$. \\
+Autrement dit, on trouve toutes les solutions en ajoutant une solution particulière ($y_p$) aux solutions de l'équation homogène ($y_h$).}
+
+
+
+
+Comme on sait résoudre l'équation homogène $y'=ay$ alors la recherche de la solution générale de $(E)$ se réduit donc à la recherche d'une solution particulière.
+Pour trouver cette solution particulière des indications vous seront fournies.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Exemples}
+
+\emph{Exemple 1.}
+Résoudre l'équation $(E)$ : $y' = 2y + 7$ en cherchant une solution particulière sous la forme d'une fonction constante.
+\begin{itemize}
+  \item \emph{\'Equation homogène.} L'équation homogène est $(E_h)$ : $y'=2y$, les solutions sont les $y_h(x) = Ce^{2x}$ pour chaque $C \in \Rr$.
+
+  \item \emph{Solution particulière.} Cherchons une solution constante de $(E)$. Soit $y_p(x)=k$, alors $y_p'(x) = 0$, donc l'équation $(E)$ devient $0=2k+7$, ce qui implique $k=-\frac72$. Une solution particulière est donc $y_p(x)=-\frac72$.
+
+  \item \emph{Solutions générales.} Les solutions générales de $(E)$ sont donc  les fonctions de la forme "les solutions de l'équation homogène + une solution particulière" :
+$$y(x) = y_h(x) + y_p(x),$$
+c'est-à-dire pour notre exemple
+$$y(x) = Ce^{2x} - \frac72 \qquad \text{ avec } C \in \Rr.$$
+Chaque valeur de la constante $C$ donne une solution.
+\end{itemize}
+
+\bigskip
+
+\emph{Exemple 2.}
+Résoudre l'équation $(E)$ : $y'+y = x^2$ en cherchant une solution particulière sous la forme d'une fonction polynomiale de degré 2, $y_p(x) = ax^2+bx+c$.
+\begin{itemize}
+  \item \emph{\'Equation homogène.} L'équation homogène est $(E_h)$ : $y'+y=0$, c'est-à-dire $y'=-y$, dont les solutions sont les $y_h(x) = Ce^{-x}$ pour chaque $C \in \Rr$.
+
+  \item \emph{Solution particulière.} Cherchons une solution à $(E)$ sous la forme polynomiale indiquée : $y_p(x)=ax^2+bx+c$. On a alors $y_p'(x) = 2ax+b$, donc l'équation $(E)$ devient $(2ax+b)+(ax^2+bx+c)=x^2$. Pour trouver $a,b,c$ on regroupe les coefficients devant $x^2$, $x$, et $1$ pour ensuite effectuer une identification :
+  $$a \cdot x^2 + (2a+b) \cdot x + (b+c) \cdot 1 = x^2$$
+  ce qui donne 
+  $$a \cdot x^2 + (2a+b) \cdot x + (b+c)\cdot 1 = x^2 = 1 \cdot x^2 + 0 \cdot x + 0 \cdot 1.$$
+  On identifie les coefficients du polynômes de gauche avec les coefficients du polynôme de droite afin d'obtenir :
+  $$a=1 \qquad 2a+b = 0 \qquad b+c = 0$$
+  et donc 
+  $$a = 1 \qquad b=-2 \qquad c = 2.$$
+  Ainsi une solution particulière est :
+$$y_p(x) = x^2-2x+2.$$
+  
+
+  \item \emph{Solutions générales.} Les solutions générales de $(E)$ sont donc 
+ les fonctions  :
+$$y(x) = y_h(x) + y_p(x),$$
+c'est-à-dire
+$$y(x) = Ce^{-x} + x^2-2x+2 \qquad \text{ avec } C \in \Rr.$$
+\end{itemize}
+
+
+\end{document}

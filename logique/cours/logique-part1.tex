@@ -1,0 +1,201 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+\newcommand{\Assertion}[1]{\textcolor{blue}{\emph{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Logique et raisonnements -- Partie 1 : Logique} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Comprendre les connecteurs logiques  ET, OU et NON.
+        \item Comprendre les quantificateurs $\forall$ et $\exists$.
+        \item Comprendre l'implication, l'équivalence, la contraposée.
+        
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir décider si une assertion est vraie ou fausse.
+        \item Savoir écrire des négations simples.
+	\end{itemize}
+}
+
+
+
+\bigskip
+
+%-----------------------------------------
+\subsection*{Assertions}
+
+\textbf{Définition.} Une \textbf{assertion} est un énoncé ou une phrase dont on peut trancher si elle est vraie ou si elle est fausse. En particulier, elle ne peut pas être à la fois vraie et fausse.
+
+Exemples.
+\begin{itemize}
+    \item \Assertion{"$2+2=4$"} est une assertion vraie.
+    \item \Assertion{"$8$ est divisible par $3$"} : c'est aussi une assertion, mais elle est fausse.
+    \item \Assertion{"Je suis né à Paris"} : c'est une assertion (qui est vraie ou fausse selon l'énonciateur).
+    \item \Assertion{"Les nombres de la forme $8k + 2$, pour tout $k \in \Zz$, sont des nombres pairs".} Cette assertion, un peu plus élaborée, est vraie ! Elle pourrait être mieux formulée, nous la retrouverons sous une autre forme un peu plus tard à l'aide des \emph{quantificateurs}.
+\end{itemize}
+
+
+Remarque : une proposition mathématique dont on \textit{pense} qu'elle est vraie, sans arriver à la démontrer, est appelée une \textit{conjecture}. Parmi les exemples célèbres il y a la conjecture de Goldbach et la conjecture des nombres premiers jumeaux.
+
+  
+%-----------------------------------------
+\subsection*{Connecteurs logiques : NON, ET, OU}
+
+\textbf{NON}
+
+\begin{itemize}
+    \item Si $\mathcal{P}$ est une assertion, alors sa \textbf{négation} "non-$\mathcal{P}$" est également une assertion qui exprime le contraire de $\mathcal{P}$. Si $\mathcal{P}$ est vraie, alors non-$\mathcal{P}$ est fausse ; si $\mathcal{P}$ est fausse, alors non-$\mathcal{P}$ est vraie.
+    
+    \item En termes de logique, les mots \textbf{négation} et \textbf{contraire} sont des synonymes. Chercher la \textit{négation} d'une proposition, c'est donc essayer d'exprimer son \textit{contraire}.
+    Autrement dit :  non-$\mathcal{P}$ = contraire de $\mathcal{P}$.
+    
+    \item La négation de \Assertion{"$x^2<4$"} est \Assertion{"$x^2\geq 4$"}. La négation de \Assertion{"Il n'y a pas de solution à ce problème"} est \Assertion{"Il existe une solution à ce problème"}.
+\end{itemize}
+
+\bigskip
+
+\textbf{ET / OU}
+
+\begin{itemize}
+    \item \textbf{ET.}
+    L'assertion "$\mathcal{P}\, \textbf{et} \, \mathcal{Q}$" est une assertion qui est vraie si $\mathcal{P}$ est vraie et $\mathcal{Q}$ est vraie. Elle est fausse sinon.
+    
+    \item \textbf{OU.}    
+    L'assertion "$\mathcal{P}\, \textbf{ou} \, \mathcal{Q}$" est vraie si au moins l'une des deux assertions $\mathcal{P}$ ou $\mathcal{Q}$ est vraie. Elle est fausse si $\mathcal{P}$ est fausse et $\mathcal{Q}$ est aussi fausse.
+    
+    \item Exemple. L'assertion \Assertion{"Je suis une fille et je porte des lunettes"} est-elle vraie pour toi ?
+    
+    \item Exemple. Si $n$ désigne un entier naturel (on note $n \in \Nn$), alors :
+    \begin{itemize}
+        \item \Assertion{"$n$ est pair ou $n$ est impair"} est toujours vraie.
+        \item \Assertion{"$n$ est positif et $n$ est négatif"} n'est vraie que si $n=0$.
+    \end{itemize}
+
+    \item \textbf{Négation des ET / OU.}
+    La négation de "$\mathcal{P}$ et $\mathcal{Q}$" est : "non-$\mathcal{P}$ ou non-$\mathcal{Q}$".\\ \hspace*{5mm} La négation de "$\mathcal{P}$ ou $\mathcal{Q}$" est : "non-$\mathcal{P}$ et non-$\mathcal{Q}$".
+    
+    \item Exemple. La négation de \Assertion{"Je suis une fille ET je porte des lunettes "} est \Assertion{"Je ne suis pas une fille OU je ne porte pas de lunettes"}.\\
+    La négation de "\Assertion{J'aime le chocolat OU j'aime les fraises}" est "\Assertion{Je n'aime pas le chocolat ET je n'aime pas les fraises}".
+\end{itemize}
+
+Dans la suite, on confondra le terme d'\emph{assertion} avec celui de \emph{proposition}.
+
+%-----------------------------------------
+\subsection*{Quantificateurs}
+
+De nombreuses propositions mathématiques dépendent d'un ou plusieurs paramètres. Par exemple, la proposition $x^2 \geq 4$ est vraie pour certaines valeurs du nombre $x$, et fausse pour d'autres. On notera ainsi $\mathcal{P}(x)$ une proposition $\mathcal{P}$ dépendant d'un paramètre $x$. 
+
+
+On peut alors distinguer deux grands types de propositions dépendant d'un paramètre : les propositions qui sont vraies pour toutes les valeurs du paramètre, et celles dont on sait qu'il y a (au moins) un paramètre pour lequel elles sont vraies. Bien sûr, il faudra préciser de quel genre de paramètre il s'agit : un nombre entier ? Un nombre réel ? Un entier compris entre $3$ et $10$ ? Etc.
+
+
+Pour exprimer ces deux types de propositions, on utilise deux \textbf{quantificateurs} : $\forall$ et $\exists$.
+
+\begin{itemize}
+    \item Le quantificateur \boldmath $\forall$ \unboldmath (appelé quantificateur universel) signifie "\textbf{pour tout}". On l'utilise pour exprimer qu'une proposition est vraie pour n'importe laquelle des valeurs d'un paramètre (au sein d'un ensemble à préciser). Ainsi, on notera par exemple : 
+    $$ \forall x \in \Rr \qquad \mathcal{P}(x) $$
+    Cela signifie (et se lit) : \emph{"pour tout nombre $x$ réel, on a $\mathcal{P}(x)$"}, ou encore \emph{"pour tout nombre $x$ réel, la proposition $\mathcal{P}(x)$ est vraie"}.
+
+    \item Exemples. 
+    \begin{itemize}
+        \item $\forall x \in \Rr \qquad x^2 \ge0$
+        \item $\forall x\ge2 \qquad 2x-3 \ge 1$
+        \item $\forall n \in \Nn  \qquad 2n+1 \text{ est un entier impair}$
+        \item $\forall x \in \mathopen]2,3[ \qquad \frac13 < \frac1x < \frac12$
+    \end{itemize} 
+
+    \item Le quantificateur \boldmath $\exists$ \unboldmath (appelé quantificateur existentiel) signifie "\textbf{il existe}". On l'utilise pour exprimer qu'il existe une valeur du paramètre (au sein d'un ensemble à préciser) pour laquelle une proposition est vraie. On note par exemple :
+    $$ \exists x \in [-5, 3]  \quad \mathcal{P}(x) $$
+    Cela signifie (et se lit) : \emph{"il existe un nombre (réel) entre $-5$ et $3$ pour lequel $\mathcal{P}(x)$ est vraie"}.
+
+    \item Exemples. 
+    \begin{itemize}
+        \item $\exists x \in \Rr \quad 3x-7 = 0$
+        \item $n$ est un entier pair signifie "$\exists k\in\Zz \quad n=2k$"
+        \item une fonction $f$ s'annule entre $0$ et $1$ s'écrit
+        "$\exists x \in [0,1] \quad f(x)=0$".
+    \end{itemize} 
+
+    \item Cela ne signifie pas que la valeur de $x$ pour laquelle l'assertion $\mathcal{P}(x)$ est vraie est unique ! Par exemple, "$\exists x \in \Rr \quad x(x-2)=0$" est une proposition qui est vraie : on a bien $x(x-2)=0$ pour $x=0$ et pour $x=2$.
+\end{itemize}
+
+
+%-----------------------------------------
+\subsection*{Implication et équivalence}
+
+\textbf{L'implication "$\implies$"}
+
+Si $\mathcal{P}$ et $\mathcal{Q}$ sont deux assertions, on peut définir la proposition "\Assertion{si $\mathcal{P}$ est vraie, alors $\mathcal{Q}$ est vraie}". Cette proposition est très utilisée en mathématiques, on la note : \Assertion{\textbf{$\mathcal{P} \implies \mathcal{Q}$}} (on lit "$\mathcal{P}$ implique $\mathcal{Q}$").
+
+\medskip
+
+\emph{Remarque.}
+Si "\Assertion{$\mathcal{P} \implies \mathcal{Q}$}" est vraie, on dit souvent que \emph{$\mathcal{P}$ est une condition suffisante pour $\mathcal{Q}$}. En effet, si l'on cherche à montrer que $\mathcal{Q}$ est vraie, il suffit d'obtenir que $\mathcal{P}$ est vraie ! Cependant, $\mathcal{Q}$ peut très bien être vraie sans que $\mathcal{P}$ ne le soit. Réciproquement, $\mathcal{Q}$ est une \emph{condition nécessaire} pour $\mathcal{P}$ car il faut que $\mathcal{Q}$ soit vraie pour que $\mathcal{P}$ le soit (mais cela ne suffit pas forcément).
+
+\medskip
+
+\emph{Exemples.}
+    
+\begin{itemize}
+        \item"\Assertion{Je suis à l'Université $\implies$ J'ai eu mon bac}" est une implication qui est vraie. En effet avoir son bac est une \textit{condition nécessaire} pour entrer à l'Université !
+        \item "\Assertion{$0\leq x \leq 9 \implies \sqrt{x} \leq 3$}" est une implication qui est vraie.
+        \item "\Assertion{$\sin(\theta)=0 \implies \theta = 0$}" est fausse (par exemple $\sin(\pi)=0$ bien que $\pi = 3.14\ldots$ soit non nul).      
+\end{itemize}
+
+
+
+\bigskip
+
+
+\textbf{Équivalence "$\iff$"}
+
+Si les propositions \Assertion{$\mathcal{P} \implies \mathcal{Q}$} et \Assertion{$\mathcal{Q} \implies \mathcal{P}$} sont toutes deux vraies, on note : \Assertion{$\mathcal{P} \iff \mathcal{Q}$} (on lit "$\mathcal{P}$ équivaut à $\mathcal{Q}$").
+
+Dans le cas d'une équivalence, les deux propositions $\mathcal{P}$ et $\mathcal{Q}$ ont la même valeur de vérité : elles sont soit simultanément vraies soit simultanément fausses. 
+
+\medskip
+
+\emph{Exemples.}
+\begin{itemize}
+        \item "\Assertion{Je suis à l'Université $\iff$ J'ai eu mon bac}" est une équivalence qui est fausse ! Le sens direct $\implies$ est vrai, mais le sens réciproque $\Longleftarrow$ est faux : ce n'est pas parce qu'on a eu son bac qu'on est à l'Université.
+        \item Pour $x$ un nombre réel, on a l'équivalence : "$5x+15<0 \iff x<-3$".
+        \item Pour $a$ et $b$ deux nombres réels ou complexes, on a l'équivalence : "$ab=0 \iff (a=0 \text{ ou } b=0)$".
+\end{itemize}
+
+
+\bigskip
+
+\textbf{Proposition contraposée}
+
+
+Les implications \Assertion{$\mathcal{P} \implies \mathcal{Q}$} \; et \; \Assertion{non-$\mathcal{Q} \implies $ non-$\mathcal{P}$} sont équivalentes. En d'autres termes, l'implication "$\mathcal{P} \implies \mathcal{Q}$" sera vraie si, et seulement si, l'implication "non-$\mathcal{Q} \implies $ non-$\mathcal{P}$" est vraie.
+
+La proposition \Assertion{non-$\mathcal{Q} \implies $ non-$\mathcal{P}$} est appelée la \textbf{contraposée} de la proposition \Assertion{$\mathcal{P} \implies \mathcal{Q}$}.
+
+\emph{Remarque.}
+L'équivalence d'une implication et de sa contraposée signifie que si l'on doit prouver $\mathcal{P} \implies \mathcal{Q}$, il revient au même de prouver non-$\mathcal{Q} \implies $ non-$\mathcal{P}$.
+
+
+\emph{Exemples.}
+
+\begin{itemize}
+     \item Si l'on doit démontrer "\Assertion{Je vais au carnaval $\implies$ Je suis maquillé}", et que l'on démontre (sa contraposée) "\Assertion{Je ne suis pas maquillé $\implies$ Je ne vais pas au carnaval}", alors c'est gagné.
+     
+     \item La contraposée de l'implication cartésienne : "\Assertion{Je pense donc je suis}" est : "\Assertion{Je ne suis pas donc je ne pense pas}". 
+     
+     \item Soit $n \in \Nn$. Pour montrer l'assertion "\Assertion{$n^2$ est pair $\implies n$ est pair}" il est beaucoup plus facile de prouver la  contraposée : "\Assertion{$n$ est impair $\implies n^2$ est impair}".
+\end{itemize}  
+
+
+\end{document}

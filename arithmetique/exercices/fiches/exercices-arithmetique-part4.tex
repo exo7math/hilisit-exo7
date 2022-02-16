@@ -1,0 +1,108 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+    
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Arithmétique -- Partie 4 : Congruences}
+
+\bigskip
+\bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Congruences}
+
+
+
+\exercice{}
+
+\enonce
+Simplifier les expressions suivantes (sans calculatrice). Par exemple "simplifier $72 \; [7]$" signifie "trouver $n$ entre $0$ et $6$ tel que $72 \equiv n \; [7]$" ; la réponse est $n=2$.
+\begin{itemize}
+    \item $45 \; [7]$,\quad $39 \; [7]$, \quad $45+39 \; [7]$, \quad $45 \times 39 \; [7]$,\quad $45^2 \; [7]$,\quad  $39^3 \; [7]$.
+    \item $1052 \; [22]$, \quad $2384 \; [22]$,\quad  $2384-1052 \; [22]$, \quad $1052^2 \times 2384 \; [22]$.
+\end{itemize} 
+\finenonce
+
+
+\finexercice
+
+
+\exercice{}
+\enonce
+\sauteligne
+\begin{enumerate}
+    \item Calculer $2^{500}$ modulo $13$ (utiliser le petit théorème de Fermat).
+    \item Calculer $1000^{123}$ modulo $17$.  
+    \item Calculer $3^{1234}$ modulo $15$ (attention on ne peut pas appliquer le petit théorème de Fermat, étudier d'abord $3^k$ modulo $15$ pour les petites valeurs de $k$).
+\end{enumerate} 
+\finenonce
+
+
+\finexercice
+
+
+
+
+\exercice{}
+
+\enonce
+\emph{Les deux premières questions reprennent un exercice précédent et montrent l'efficacité des congruences pour les calculs.}
+\begin{enumerate}
+    \item Soit $n=p^2$ le carré d'un entier. Déterminer les valeurs possibles de $n$ modulo $4$.
+    
+    \item Montrer que si $n$ est un entier naturel somme de deux carrés d'entiers 
+    alors $n$ modulo $4$ n'est jamais égal à $3$.
+    
+    \item Soit $n=p^2$ le carré d'un entier. Déterminer les valeurs possibles de $n$ modulo $8$.
+        
+    \item Montrer que si $n$ est un entier naturel somme de trois carrés d'entiers 
+    alors $n$ modulo $8$ n'est jamais égal à $7$.
+\end{enumerate} 
+\finenonce
+
+
+\finexercice
+
+\exercice{}
+\enonce
+\sauteligne
+\begin{enumerate}
+    \item Montrer que $p=101$ est un nombre premier.
+    \item Soit $a$ un entier avec $1 \le a < p$. Montrer que $\pgcd(a,p)=1$.
+    \item \'Ecrire le théorème de Bézout pour le pgcd précédent ; en déduire qu'il existe $u \in \Zz$ tel que $au \equiv 1 \; [p]$. \emph{Un tel $u$ s'appelle un \textbf{inverse} de $a$ modulo $p$.}
+    \item Trouver un inverse de $a=15$ modulo $p=101$.
+    \item Trouver une solution de l'équation d'inconnue $x$ (un entier) : $15x \equiv 7 \; [101]$.   
+    \item Reprendre tout l'exercice avec $p=103$.
+\end{enumerate} 
+\finenonce
+
+
+\finexercice
+
+
+\exercice{}
+\enonce
+Les \textbf{nombres de Fermat} $F_n$ sont les entiers définis pour $n \in \mathbb{N}$ par 
+$$ F_n = 2^{2^n} + 1 $$
+\begin{enumerate}
+\item Montrer que pour tout entier naturel $n$, on a $F_{n+1} = (F_n - 1)^2 + 1$.
+\item Démontrer que pour $n \geq 2$, l'écriture décimale des nombres de Fermat $(F_n)$ se termine par le chiffre $7$.
+\end{enumerate}
+\finenonce
+
+
+\finexercice
+
+
+
+\end{document}
+

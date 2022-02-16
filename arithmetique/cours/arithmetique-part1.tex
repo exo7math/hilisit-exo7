@@ -1,0 +1,168 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Arithmétique -- Partie 1 : pgcd} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Connaître les conditions qui définissent la division euclidienne.
+        \item Connaître le lien entre pgcd et ppcm.
+        
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir poser une division d'entiers afin de calculer le quotient et le reste.
+        \item Savoir calculer un pgcd à l'aide de l'algorithme d'Euclide.
+	\end{itemize}
+}
+
+
+
+\bigskip
+
+%-----------------------------------------
+\subsection*{Division euclidienne}
+
+Dans tout ce chapitre, les lettres utilisées désigneront par défaut des nombres entiers. Des spécifications seront apportées dans les énoncés si besoin.
+
+
+
+\begin{itemize}
+    \item \textbf{Définition de la division euclidienne.}
+    Soit $a$ un entier positif et $b$ un entier strictement positif. Alors il existe des entiers $q$ et $r$ uniques tels que : 
+    \mybox{$a = bq + r \qquad \text{ avec } 0 \leq r \leq b-1.$}
+    
+    \item \emph{Exemple.} $45 = 7 \times 6 + 3$ \qquad ou encore \qquad $117 = 13 \times 9 + 0$.
+    
+    \item On dit que $b$ \textbf{divise} $a$ s'il existe un entier $k$ tel que $a = kb$. On note alors $b | a$. Cela revient à dire que le reste dans la division euclidienne de $a$ par $b$ est nul.
+    
+    Il revient au même de dire que \textit{b divise a} et que \textit{a est un multiple de b}.
+    
+    \item Sur les exemples précédents $13\, | \, 117$, mais $7$ ne divise pas $45$.
+    
+    \item \textbf{Proposition.} Si $a|b$ et $a|c$, alors pour tous les entiers $m$ et $n$, $a|mb+nc$. En particulier $a$ divise $b+c$ et $b-c$.
+    
+    \emph{Preuve.} Il s'agit d'une simple factorisation. On écrit $b=ka$ et $c=la$. Alors $mb+nc = mka+nla=(mk+nl)a$ qui est bien un multiple de $a$.
+    
+    
+\end{itemize}
+
+%-----------------------------------------
+\subsection*{Critères de divisibilité}
+
+\begin{itemize}
+    \item Un entier est divisible par $2$ (autrement dit c'est un entier pair) si et seulement si son chiffre des unités est $0$, $2$, $4$, $6$ ou $8$.
+    
+    \item Un entier est divisible par $3$  si et seulement si la somme de ses chiffres est divisible par $3$.
+       
+    \item Un entier est divisible par $5$ si et seulement si son chiffre des unités est $0$ ou $5$.
+    
+    \item Un entier est divisible par $3$  si et seulement si la somme de ses chiffres est divisible par $3$.      
+\end{itemize}
+
+\emph{Exemple.} $n = 35\,418$. Le chiffre des unités est $8$ donc $n$ est divisible par $2$ mais pas par $5$. La somme des chiffres est $3+5+4+1+8 = 21$. Comme $21$ est divisible par $3$ alors $n$ est divisible par $3$.
+En plus, comme $21$ n'est divisible par $9$ alors $n$ n'est pas divisible par $9$.
+    
+%-----------------------------------------
+\subsection*{pgcd}
+
+\begin{itemize}
+    \item \textbf{Définition du pgcd.}
+    Soient $a$ et $b$ deux entiers positifs. Le plus grand nombre entier  qui divise à la fois $a$ et $b$ est appelé le \textbf{plus grand diviseur commun} de $a$ et $b$. On le note $\pgcd(a,b)$.
+    
+    \item \emph{Exemple.} Les diviseurs communs de $24$ et $36$ sont les entiers : $1,2,3,4,6,8,12$.
+    Ainsi le pgcd de $24$ et $36$ est $12$.
+    
+    
+    \item Le pgcd possède les propriétés suivantes : $$\pgcd(na, nb) = n \pgcd(a,b) \qquad \qquad \pgcd(a,0) = a \qquad \qquad \pgcd(a,1)=1 $$
+\end{itemize}
+
+%-----------------------------------------
+\subsection*{Algorithme d'Euclide}
+
+Une méthode pour calculer un pgcd est l'algorithme d'Euclide.
+Cette méthode est basée sur le résultat suivant :
+
+\textbf{Proposition.}
+Soient deux entiers $a\ge0$ et $b>0$, et $a=bq+r$ le résultat de la division euclidienne de $a$ par $b$. Alors \myboxinline{$\pgcd(a,b) = \pgcd(b,r)$}.
+
+\emph{Preuve.}
+Soit $d$ un diviseur de $a$ et de $b$. Alors $d$ divise $a-bq$ donc $d$ divise $r$. Réciproquement, si $d$ divise $b$ et $r$, il divise $bq+r$ donc il divise $a$. 
+Ainsi les diviseurs communs de $a$ et de $b$ sont les mêmes que ceux de $b$ et de $r$, donc en particulier le plus grand (le $\pgcd$) est identique.
+
+
+\bigskip
+
+
+
+L'algorithme d'Euclide repose sur la proposition précédente : pour trouver le $\pgcd$ de deux entiers positifs $a$ et $b$, on effectue la division euclidienne de $a$ par $b$ (ou le contraire si $b>a$) : $a = bq_0+r_0$. Si le reste $r_0$ est nul, $b$ est un diviseur de $a$, et par conséquent $\pgcd(a,b)=b$. Sinon, on recommence en effectuant la division euclidienne de $b$ par $r_0$ : $b = q_1r_0 + r_1$. Si $r_1$ est nul, $\pgcd(a,b)=\pgcd(b,r_0)=r_0$. Sinon, on poursuit avec la division euclidienne de $r_0$ par $r_1$, et ainsi de suite.\\
+Le processus se termine, car les restes forme une suite d'entiers positifs  strictement décroissants. Enfin :
+\mybox{Le $\pgcd$ de $a$ et $b$ sera le dernier reste non nul.}
+
+
+\textbf{Exemple.}
+Recherchons $\pgcd(1 \,188, 120)$ :
+    \begin{equation*}
+    \begin{aligned}
+    1\,188 = 120 \times 9 + 108 & \quad \rightarrow \quad \pgcd(1\,188,120)=\pgcd(120,108)\\
+    120 = 108 \times 1 + \boxed{12} & \quad \rightarrow \quad \pgcd(120,108)=\pgcd(108,12)\\
+    108 = 12 \times 9 + 0 & \quad \rightarrow \quad \pgcd(108,12)=\pgcd(12,0)=12\\
+    \end{aligned}
+    \end{equation*}
+    Ainsi on a $\pgcd(1\,188, 120) = 12$.
+    
+\medskip
+   
+\textbf{Exemple.}    
+    Cherchons maintenant à déterminer $\pgcd(144,48)$ : 
+    \begin{equation*}
+    \begin{aligned}
+    144 = 48 \times 3 + 0 & \quad \rightarrow \quad \pgcd(144,48)=48\\
+    \end{aligned}
+    \end{equation*}
+    $48$ est un diviseur de $144$, donc $\pgcd(144,48)=48$.
+
+\medskip
+
+\emph{Exercice.} Déterminer $\pgcd(585,247)$ et $\pgcd(121,73)$.
+
+
+%-----------------------------------------
+\subsection*{ppcm}
+
+\begin{itemize}
+    \item \textbf{Définition du ppcm.}
+     Soient deux entiers positifs $a$ et $b$, le \textbf{plus petit multiple commun} de $a$ et $b$, noté $\ppcm(a,b)$, est le plus petit entier positif qui est à la fois un multiple de $a$ et un multiple de $b$.
+     
+     \item \emph{Exemple.} Les multiples (positifs) commun à $9$ et $12$ sont $36$, $72$, $108$,\ldots{} Le ppcm de $9$ et $12$ est donc $36$. 
+    
+     \item \emph{Lien entre le pgcd et le ppcm.}
+     Le pgcd et le ppcm sont liés par la formule 
+     \mybox{$ab = \pgcd(a,b) \times \ppcm(a,b)$}
+     Ceci permet d'obtenir le ppcm une fois qu'on a calculé le pgcd :
+     $\ppcm(a,b)= \frac{ab}{\pgcd(a,b)}$
+    
+     \item \emph{Exemple.} Puisque $\pgcd(1\,188,120)=12$, on a : $\ppcm(1\,188,120)= \frac{1\,188 \times 120}{12}=11\,880$. 
+     
+     \item \emph{Autre exemple.} $\pgcd(144,48)=48 \implies \ppcm(144,48)= \frac{144\times48}{48}=144$, ce qui est normal puisque $144$ est lui-même un multiple de $48$.
+     
+    \item \emph{Facultatif.} Voici des explications concernant la relation pgcd/ppcm : $d|a$ donc $a=kd$, et $d|b$ donc $b=ld$. Ainsi $ \frac{ab}{d} = kb=la$ est bien un multiple de $a$ et de $b$. Pour montrer que $ \frac{ab}{\pgcd(a,b)}$ est bien le plus petit des multiples communs à $a$ et $b$, nous aurons besoin soit du \textit{lemme de Gauss}, soit de la \textit{décomposition en facteurs premiers}, ce que nous verrons dans la suite.
+
+\end{itemize}
+
+
+
+
+\end{document}

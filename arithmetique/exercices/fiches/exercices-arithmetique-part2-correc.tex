@@ -1,0 +1,165 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+\newcommand{\ppcm}{\mathop{\mathrm{ppcm}}\nolimits}
+
+\begin{document}
+    
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Arithmétique -- Partie 2 : Théorème de Bézout}
+
+\bigskip
+\bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Théorème de Bézout}
+
+
+\exercice{}
+\enonce
+Soit $a=84$ et $b=75$. Calculer $d=\pgcd(a,b)$ à l'aide de l'algorithme d'Euclide, puis déterminer des coefficients de Bézout $u,v \in \Zz$ tels que $au+bv=d$.
+
+Même exercice avec $a=624$ et $b=108$.
+\finenonce
+
+\indication
+Les coefficients de Bézout s'obtiennent par remontée de l'algorithme d'Euclide.
+\finindication
+
+\correction
+\sauteligne
+
+\begin{enumerate}
+    \item   
+    Calculons $\pgcd(84,75)$ par l'algorithme d'Euclide :
+    $$
+    \begin{array}{rclclcl}
+    84 & = & 75 & \times & 1 & + & 9 \\
+    75 & = & 9  & \times & 8 & + & \boxed{3} \\
+    9  & = & 3  & \times & 3 & + & 0 \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(84,75) = 3$.
+    
+    Maintenant nous reprenons ces égalités en partant de la fin (avant-dernière ligne) :
+    $$\boxed{3} = 75 - 9 \times 8$$
+    On va remplacer le $9$ de cette égalité.
+    
+    La première ligne fournit l'égalité :
+    $$9 = 84 -75 \times 1$$
+    
+    Donc 
+    $$\boxed{3} = 75 - \big(84 -75 \times 1 \big) \times 8$$
+    On garde précieusement les entiers $84$ et $75$ et on ne cherche pas à simplifier, on factorise juste :
+    $$\boxed{3} = 84 \times (-8)  + 75 \times 9$$
+    Ainsi $u=-8$ et $v=9$ conviennent. C'est une bonne idée de faire une vérification rapide.
+    
+    
+    \item 
+    Calculons $\pgcd(624,108)$.
+    $$
+    \begin{array}{rclclcl}
+    624 & = & 108 & \times & 5 & + & 84 \\
+    108 & = & 84  & \times & 1 & + & 24 \\
+    84 & = & 24  & \times & 3 & + & \boxed{12} \\
+    24 & = & 12  & \times & 2 & + & 0  \\
+    \end{array}
+    $$
+    Ainsi $\pgcd(624,108) = 12$. 
+    
+    Remontons ces égalités, tout d'abord l'avant-dernière ligne donne le pgcd :
+    $$\boxed{12} = 84 -24 \times 3$$
+    Mais par la ligne au-dessus on a 
+    $$24 = 108 - 84 \times 1$$
+    On remplace $24$ dans l'égalité ci-dessus :
+    $$\boxed{12} = 84 - \big( 108 - 84 \times 1\big)\times 3$$
+    On factorise (sans trop simplifier) :
+    $$\boxed{12} = 108 \times (-3)  + 84 \times 4$$
+    La première ligne donne :
+    $$84 = 624 - 108 \times 5$$
+    ce qui nous donne
+    $$\boxed{12} = 108 \times (-3)  + \big( 624 - 108 \times 5 \big) \times 4$$
+    On factorise pour obtenir :
+    $$\boxed{12} = 624 \times 4 + 108 \times (-23)$$
+    Ainsi les coefficients de Bézout sont $u=4$ et $v-23$.
+    
+    
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+
+\exercice{}
+\enonce
+Nous allons montrer que \og{}Deux entiers consécutifs sont toujours premiers entre eux.\fg{}
+\begin{enumerate}
+    \item \emph{Première méthode.} On considère deux entiers consécutifs notés $n$ et $n+1$. Montrer que si $d$ divise $n$ et $n+1$ alors nécessairement $d=1$. 
+    
+    \item \emph{Seconde méthode.} Soit $a=n$ et $b=n+1$. Trouver $u,v \in \Zz$ (très simples) tels que $au+bv=1$. Conclure.
+\end{enumerate} 
+\finenonce
+
+\indication
+Pour la première méthode considérer une différence.
+Pour la seconde méthode, utiliser la variante du théorème de Bézout.
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Si $d$ divise $n$ et $n+1$ alors $d$ divise aussi la différence $(n+1) - n$ (qui vaut $1$), donc $d$ divise $1$. Ainsi $d=1$ (ou $d=-1$) et $\pgcd(n,n+1)=1$.
+    
+    \item Avec $u=-1$ et $v=+1$ on a $nu+(n+1)v=1$. Par la variante du théorème de Bézout \og{}$a$ et $b$ sont premiers entre eux $\iff$ il existe $(u,v) \in \Zz^2$ tels que $au+bv=1$\fg{}, cela implique que $n$ et $n+1$ sont premiers entre eux.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce
+Soit $\alpha \in \Zz$ un entier fixé que l'on cherchera à déterminer par la suite. Pour $k \in \Zz$, on pose : $N_1(k) = 7k+11$ et $N_2(k) = 2k + \alpha$.
+\begin{enumerate}
+    \item Déterminer deux entiers $u,v$ tels que le nombre $u N_1(k) + v N_2(k)$ ne dépende pas de l'entier $k$.
+    
+    \item En déduire une valeur de $\alpha$ pour obtenir $\pgcd(N_1(k) , N_2(k)) = 1$ pour tout entier $k$.
+    
+    \item Application : en déduire $\pgcd(95,27)$ d'une part, et $\ppcm(361,103)$ d'autre part.
+\end{enumerate}
+\finenonce
+
+\indication
+On cherche "des bons coefficients" pour obtenir une relation de Bézout traduisant le fait que $N_1(k)$ et $N_2(k)$ sont premiers entre eux ! Ensuite, on peut utiliser le lien entre $\pgcd$ et $\ppcm$...
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item En prenant $u = 2$ et $v = -7$, on obtient l'égalité :
+    $$ u N_1(k) + v N_2(k) = 2 ( 7k+11) + (-7) ( 2k + \alpha) = 22 - 7 \alpha $$
+    Cette quantité ne dépend donc plus de l'entier $k$. (On aurait aussi pu prendre $u=-2$ et $v=7$).
+    
+    \item Si l'on fixe $\alpha$ tel que $ u N_1(k) + v N_2(k) = 1$, le théorème de Bézout nous garantira l'obtention de $\pgcd(N_1(k) , N_2(k)) = 1$ pour tout entier $k$. On va donc fixer :
+    $$ 22 - 7 \alpha = 1 \iff \alpha = 3 $$
+    
+    \item On remarque que pour $k=12$, on obtient :
+    $$ N_1(12) = 7 \times 12 + 11 = 95 \qquad ; \qquad N_2(12) = 2 \times 12 + 3 = 27 $$
+    D'après ce qui précède, on sait donc que $\pgcd(N_1(12) , N_2(12)) = \pgcd(95,27) = 1$.\\
+    On a ensuite pour $k = 50$ :
+    $$ N_1(50) = 7 \times 50 + 11 = 361 \qquad ; \qquad N_2(50) = 2 \times 50 + 3 = 103 $$
+    D'après nos résultats précédents, on sait que $\pgcd(N_1(50) , N_2(50)) = \pgcd(361,103) = 1$. Par conséquent, on a :
+    $$ \ppcm (361,103) = \frac{361 \times 103}{1} = 37\, 183 $$
+\end{enumerate}
+\fincorrection
+\finexercice
+
+\end{document}
+

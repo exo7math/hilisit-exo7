@@ -1,0 +1,255 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7hilisit}
+
+\begin{document}
+
+
+\entete{Hilisit}{Capacité mathématiques}
+
+\titre{Logique, ensembles et raisonnements -- Partie 3}
+
+\bigskip
+\bigskip
+
+
+
+\exercice{}
+\enonce[Preuve au cas par cas]
+\sauteligne
+\begin{enumerate}
+    \item Montrer, en utilisant une disjonction de cas, que pour tout entier $n$, le produit $n(n+1)(2n+1)$ est divisible par $6$.
+    
+    \item Montrer que tout nombre premier supérieur à $5$ s'écrit soit sous la forme $6k+1$, soit sous la forme $6k-1$ ($k \in \Nn$).
+\end{enumerate}
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Distinguer les cas $n=3k$, $n=3k+1$ ou $n=3k+2$. Il faut montrer que $n(n+1)(2n+1)$ est divisible par $2$ et par $3$.
+    
+    \item Distinguer les cas $n=6k$, $n=6k+1$, $n=6k+2$, $n=6k+3$, $n=6k+4$ ou $n=6k+5$ (ce dernier cas s'écrit aussi $n=6k'-1$). 
+\end{enumerate}
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item On distingue les cas selon le reste de la division de $n$ par $3$ (c'est-à-dire qu'on regarde $n$ modulo $3$).
+    Au préalable, remarquons que $n$ ou $n+1$ est un nombre pair donc $n(n+1)(2n+1)$ est déjà divisible par $2$. Il reste à montrer qu'il est aussi divisible par $3$.
+    \begin{itemize}
+        \item Si $n=3k$ (pour un certain $k\in\Zz$), alors $n$ est divisible par $3$ donc $n(n+1)(2n+1)$ aussi.
+        
+        \item Si $n=3k+1$, alors $2n+1 = 2(3k+1)+1 = 6k+3$ est divisible par $3$ donc $n(n+1)(2n+1)$ aussi.    
+            
+        \item Si $n=3k+2$, alors $n+1 = 3k+3$ est divisible par $3$ donc $n(n+1)(2n+1)$ aussi.           
+     \end{itemize}
+  Dans tous les cas   $n(n+1)(2n+1)$ est divisible par $2$ et par $3$ donc par $6$.
+    
+    \item Distinguons les cas selon le reste de la division de $n$ par $6$ (c'est-à-dire qu'on regarde $n$ modulo $6$).
+    \begin{itemize}
+    \item Si $n=6k$, alors $n$ ne peut pas être premier car divisible par $6$.
+    
+    \item Si $n=6k+1$, rien ne permet d'exclure ce cas a priori.
+    
+    \item Si $n=6k+2$, alors $n$ est pair, donc ne peut pas être premier.
+       
+    \item Si $n=6k+3$, alors $n$ est divisible par $3$, donc ne peut pas être premier.    
+    
+    \item Si $n=6k+4$, alors $n$ est pair, donc ne peut pas être premier.    
+    
+   \item Si $n=6k+5$, rien ne permet d'exclure ce cas a priori.        
+\end{itemize}
+Les seuls cas où $n$ peut être un nombre premier sont les $n$ de la forme $6k+1$ et $6k+5$ (qui s'écrit aussi $6k'-1$ en posant $k'=k+1$).
+  
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\exercice{}
+\enonce[Raisonnement par l'absurde]
+\sauteligne
+\begin{enumerate}
+    \item Soient $n, a, b$ trois entiers naturels tels que $n=ab$. Montrer que $a$ ou $b$ est inférieur ou égal à $\sqrt{n}$.
+    
+    \item Soit $a \in \Rr^+$ un réel positif. Montrer :
+    \center{Si "$\forall \epsilon>0 \ \ a \leq \epsilon$" alors $a=0$.}
+\end{enumerate} 
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Soit $n=ab$. Par l'absurde si $a$ et $b$ sont plus grand que $\sqrt{n}$ alors...
+    
+    \item Soit $a \geq 0$ tel que "$\forall \epsilon>0, \; a \leq \epsilon$". Par l'absurde si $a \neq 0$ alors...
+\end{enumerate}
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item Supposons par l'absurde que "$a>\sqrt{n}$ \textbf{et} $b>\sqrt{n}$", alors $ab > \sqrt{n} \times \sqrt{n} = n$. On a d'une part $ab=n$ mais aussi $ab>n$ ce qui fournit une contradiction.
+    Conclusion : notre hypothèse de départ est fausse. Ainsi, on a "$a \le\sqrt{n}$ \textbf{ou} $b\le\sqrt{n}$".
+    
+    \item Soit $a \in \Rr^+$ tel que :
+    $$\forall \epsilon>0 \quad a \leq \epsilon.$$
+    Par l'absurde supposons "$a \neq 0$". On aura ainsi $a > 0$.\\
+    Choisissons $\epsilon = \frac{a}{2}$. Alors d'une part $0 < \epsilon < a$, mais d'autre part pour cet $\epsilon$ on a $a \le \epsilon$ (vu que c'est vrai pour tout $\epsilon$). On obtient une contradiction. Notre hypothèse  "$a \neq 0$" est donc fausse. Ce qui prouve $a=0$.
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce[Raisonnement par contraposition]
+\sauteligne
+\begin{enumerate}
+    \item Soit $n \in \Nn^\star$ un entier naturel non nul. Montrer par contraposition :\\
+    \centerline{$n^2-1$ n'est pas divisible par $8$ \quad $\implies \quad n$ est pair}
+    
+    \item Soient $x,y \in \Rr$ deux nombres réels. Montrer par contraposition :\\
+    \centerline{$x\neq y \quad  \implies \quad (x+1)(y-1)\neq (x-1)(y+1)$}
+\end{enumerate}
+\finenonce
+
+\indication
+\sauteligne
+\begin{enumerate}
+    \item Il s'agit donc de prouver :\\
+    \centerline{$n$ impair \quad  $\implies$ \quad  $n^2-1$ est divisible par $8$}
+    
+    \item  Il s'agit donc de prouver :\\
+    \centerline{$ (x+1)(y-1) = (x-1)(y+1) \quad  \implies \quad  x = y$}
+\end{enumerate}
+\finindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item La contraposition de :\\
+    \centerline{$n^2-1$ n'est pas divisible par $8$ \quad $\implies \quad n$ est pair}
+    est \\
+    \centerline{$n$ impair \quad $\implies$ \quad $n^2-1$ est divisible par $8$}
+    
+    Prouvons cette dernière assertion :
+    Soit $n$ un entier impair, il s'écrit donc $n=2k+1$ (pour un certain entier $k$), alors 
+    $n^2-1 = (2k+1)^2-1 = 4k^2+4k = 4k(k+1)$. Or $k(k+1)$ est toujours divisible par $2$, donc $n^2-1 = 4k(k+1)$ est divisible par $8$.
+    
+    Comme la contraposée est prouvée alors l'assertion initiale est aussi vraie.
+    
+    
+    \item  La contraposition de :\\
+    \centerline{$x\neq y \quad \implies \quad (x+1)(y-1)\neq (x-1)(y+1)$}
+     est \\
+    \centerline{$ (x+1)(y-1) = (x-1)(y+1) \quad \implies \quad x = y$}
+    
+     Prouvons cette dernière assertion :
+     soient $x$ et $y$ tels que  $(x+1)(y-1) = (x-1)(y+1)$ alors 
+     \begin{align*}
+     (x+1)(y-1) = (x-1)(y+1)
+     & \implies  xy -x +y -1 = xy+x-y-1   \\ 
+     & \implies 2y = 2x \\
+     &\implies x=y
+     \end{align*}
+   Comme la contraposée est vraie alors l'assertion initiale est aussi vraie.
+   
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+\exercice{}
+\enonce[Preuve par récurrence]
+\sauteligne
+\begin{enumerate}
+    \item Soit $n \in \Nn^\star$. Démontrer par récurrence l'inégalité $2^n > n$.
+    
+    \item Montrer que l'on a, pour tout entier naturel $n \ge 1$ :
+    $$ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $$
+    
+    \item On définit par récurrence la suite $(u_n)_{n \in \Nn}$ comme ceci :
+    $$\left\{\begin{array}{l}
+    u_0 = 0  \\
+    \text{et } u_{n+1} = 2 u_n + 1 \  \text{ pour } n \ge 0.
+    \end{array}\right.
+    $$
+    \begin{enumerate}
+        \item Calculer les premiers termes de la suite $(u_n)$, et émettre une conjecture quant à l'expression de son terme général.
+        \item Montrer par récurrence que $u_n = 2^n - 1$.
+    \end{enumerate}
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\correction
+\sauteligne
+\begin{enumerate}
+    \item 
+    Pour $n\ge 1$, on note $\mathcal{P}_n$ l'assertion $2^n>n$.
+    \begin{itemize}
+        \item \textbf{Initialisation.} $\mathcal{P}_1$ est vraie car pour $n=1$, $2^1>1$.
+        
+        \item \textbf{Hérédité.}
+        Fixons $n\ge1$.
+        Supposons que pour ce rang $n$, $\mathcal{P}(n)$ soit vraie, c'est-à-dire $2^n>n$.
+        On veut montrer que $\mathcal{P}(n+1)$ est vraie, c'est-à-dire $2^{n+1}>n+1$.
+        
+        \'Ecrivons :
+        $$2^{n+1} = 2 \times 2^n> 2 \times n \ge n+1.$$
+        On a utilisé l'hypothèse de récurrence $2^n > n$ (et aussi que $2n \ge n+1$).
+        La propriété est donc héréditaire.
+        
+        \item \textbf{Conclusion.} Par le principe de récurrence, quel que soit $n \ge 1$, on a $2^n>n$.
+    \end{itemize}
+   \item 
+   Pour $n\ge 1$, on note $\mathcal{P}_n$ l'assertion $ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $.
+   \begin{itemize}
+    \item \textbf{Initialisation.} $\mathcal{P}_1$ est vraie car pour $n=1$, $1=1^2$.
+    
+    \item \textbf{Hérédité.}
+    Fixons $n\ge1$.
+    Supposons que pour ce rang $n$, $\mathcal{P}(n)$ soit vraie, c'est-à-dire $ 1 + 3 + 5 + \cdots + 2n-1 = n^2 $.
+    On veut montrer que $\mathcal{P}(n+1)$ est vraie, c'est-à-dire 
+    $$ 1 + 3 + 5 + \cdots + (2n-1) +(2(n+1)-1) = (n+1)^2 .$$
+    
+    \'Ecrivons :
+    $$\underbrace{1 + 3 + 5 + \cdots + (2n-1)}_{= n^2 \text{ par hyp. de rec.}} + (2n+1)
+    = n^2 + (2n +1) = (n+1)^2$$
+    Ainsi $\mathcal{P}(n+1)$ est vraie.
+    La propriété est donc héréditaire.
+    
+    \item \textbf{Conclusion.} Par le principe de récurrence, quel que soit $n \ge 1$, on a $ 1 + 3 + 5 + \cdots + (2n-1) = n^2 $.
+   \end{itemize}
+
+   \item 
+   $u_0 = 0$, $u_1 = 2u_0+1 = 1$, $u_2 = 2u_1+1 = 3$, $u_3=2u_2+1=7$, $u_4=2u_3+1=15$,\ldots
+    
+    Montrons par récurrence que $u_n = 2^n - 1$ pour tout $n\ge0$.
+    \begin{itemize}
+        \item \textbf{Initialisation.} Pour $n=0$, on a bien  $u_0=0=2^0-1$.
+        
+        \item \textbf{Hérédité.}
+        Fixons $n\ge0$ et supposons $u_n = 2^n-1$.
+        Alors 
+        $$u_{n+1} = 2u_n+1 = 2 \times (2^n-1) + 1 = 2 \times 2^n - 1 = 2^{n+1}-1.$$
+        Ainsi la propriété est vraie au rang $n+1$.
+        
+        \item \textbf{Conclusion.} Par le principe de récurrence, $u_n = 2^n - 1$ quel que soit $n \ge 0$.
+    \end{itemize}
+    
+
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+
+
+\end{document}
