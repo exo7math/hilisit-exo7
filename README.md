@@ -20,7 +20,7 @@ Arithmétique
 
 * [Cours](arithmetique/cours/cours-arithmetique.pdf)
 * [Exercices](arithmetique/exercices/exercices-arithmetique.pdf)
-* [Qcm](arithmetique/qcm/qcm-arithmetique.pdf) et [Qcm corrigé](arithmetique/qcm/qcm-arithmétique-correc.pdf)
+* [Qcm](arithmetique/qcm/qcm-arithmetique.pdf) et [Qcm corrigé](arithmetique/qcm/qcm-arithmetique-correc.pdf)
 
 
 Équations différentielles
