@@ -5,10 +5,6 @@ Quelques chapitres transition lycée-université
 
 Cours écrit pour [Unisciel](http://www.unisciel.fr/) dans le cadre du projet "Hilisit".
 
-Vidéos
-======
-
-Quelques vidéos ! [Chaîne Youtube "Quantum"](https://www.youtube.com/channel/UCgeO7CtfYSdWt0PPZ3vafqw/)
 
 
 Logique
@@ -16,7 +12,7 @@ Logique
 
 * [Cours](logique/cours/cours-logique.pdf)
 * [Exercices](logique/exercices/exercices-logique.pdf)
-* [Qcm](logique/qcm/qcm-logique.pdf) [Qcm corrigé](logique/qcm/qcm-logique-correc.pdf)
+* [Qcm](logique/qcm/qcm-logique.pdf) et [Qcm corrigé](logique/qcm/qcm-logique-correc.pdf)
 
 
 Arithmétique
@@ -24,7 +20,7 @@ Arithmétique
 
 * [Cours](arithmetique/cours/cours-arithmetique.pdf)
 * [Exercices](arithmetique/exercices/exercices-arithmetique.pdf)
-* [Qcm](arithmetique/qcm/qcm-arithmetique.pdf) [Qcm corrigé](logique/qcm/qcm-arithmétique-correc.pdf)
+* [Qcm](arithmetique/qcm/qcm-arithmetique.pdf) et [Qcm corrigé](arithmetique/qcm/qcm-arithmétique-correc.pdf)
 
 
 Équations différentielles
@@ -32,7 +28,7 @@ Arithmétique
 
 * [Cours](equadiff/cours/cours-equadiff.pdf)
 * [Exercices](equadiff/exercices/exercices-equadiff.pdf)
-* [Qcm](equadiff/qcm/qcm-equadiff.pdf) [Qcm corrigé](logique/qcm/qcm-equadiff-correc.pdf)
+* [Qcm](equadiff/qcm/qcm-equadiff.pdf) et [Qcm corrigé](equadiff/qcm/qcm-equadiff-correc.pdf)
 
 
 
