@@ -5,7 +5,7 @@ Quelques chapitres transition lycée-université
 
 Cours écrit pour [Unisciel](http://www.unisciel.fr/) dans le cadre du projet "Hilisit".
 
-Les qcm seront maintenu ici : [GitHub Exo7 QCM](https://github.com/exo7math/qcm-exo7).
+Les qcm seront maintenues ici : [GitHub Exo7 QCM](https://github.com/exo7math/qcm-exo7).
 
 Logique
 =======
